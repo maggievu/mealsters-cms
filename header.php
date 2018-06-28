@@ -46,11 +46,12 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mealsters' ); ?></button>
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
+				'theme_location' => 'menu-primary',
+				'menu_id'        => 'menu-primary',
+                                'menu_class'     => 'menu-primary menu menu-nav',
+                                'container'      => '',
 			) );
 			?>
 		</nav><!-- #site-navigation -->
