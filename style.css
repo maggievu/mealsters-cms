@@ -41,6 +41,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Define the main color violet red and its different shades  
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Define the main color web orange and its different shades  
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Define the support colors: blue, red and pink              
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Define the colors black and white                          
+--------------------------------------------------------------*/
+/*$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;*/
 /* 
     Created on : Jun 24, 2018, 12:24:13 PM
     Author     : Maggie
@@ -357,13 +370,14 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "open sans", verdana, helvetica, arial, sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  font-family: "asap", verdana, helvetica, arial, sans-serif; }
 
 p {
   margin-bottom: 1.5em; }
@@ -379,7 +393,7 @@ address {
 
 pre {
   background: #eee;
-  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-family: "open sans", verdana, helvetica, arial, sans-serif;
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -389,7 +403,7 @@ pre {
   padding: 1.6em; }
 
 code, kbd, tt, var {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-family: "open sans", verdana, helvetica, arial, sans-serif;
   font-size: 15px;
   font-size: 0.9375rem; }
 
@@ -407,14 +421,24 @@ big {
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-html {
-  box-sizing: border-box; }
+html[lang] {
+  box-sizing: content-box;
+  margin: 0 !important; }
+  html[lang] body {
+    margin: 0 !important; }
+  @media screen and (max-width: 782px) {
+    html[lang] {
+      margin: 0 !important; }
+      html[lang] body {
+        margin: 0 !important; } }
 
 *,
 *:before,
 *:after {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
 
 body {
   background: #fff;
@@ -541,7 +565,8 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  color: #ee0073;
+  text-decoration: none; }
   a:visited {
     color: purple; }
   a:hover, a:focus, a:active {
@@ -713,15 +738,25 @@ a {
 # Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-## Header
+## Header & Footer
 --------------------------------------------------------------*/
 /* 
     Created on : Jun 24, 2018, 12:14:29 PM
     Author     : Maggie
 */
 .site-header {
-  background-color: #fff; }
+  background: linear-gradient(to bottom right, #f2398e, #ffa800);
+  min-height: 50vh;
+  display: grid;
+  justify-content: center;
+  align-content: center; }
+  .site-header .site-title a {
+    color: #e8e8e8; }
 
+/* 
+    Created on : Jul 2, 2018, 3:26:29 PM
+    Author     : Maggie
+*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/

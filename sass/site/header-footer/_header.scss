@@ -1,0 +1,16 @@
+/* 
+    Created on : Jun 24, 2018, 12:14:29 PM
+    Author     : Maggie
+*/
+
+.site-header {
+    background: linear-gradient(to bottom right, $color__violetred, $color__weborange);
+    min-height: 50vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    
+    .site-title a {
+        color: $color__white;
+    }
+}

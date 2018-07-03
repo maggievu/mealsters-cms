@@ -1,19 +1,18 @@
 a {
-	color: $color__link;
+	color: $color__violetred-dark;
 
 	&:visited {
 		color: $color__link-visited;
 	}
-	&:hover,
-	&:focus,
-	&:active {
+	&:hover, &:focus, &:active {
 		color: $color__link-hover;
 	}
 	&:focus {
 		outline: thin dotted;
 	}
-	&:hover,
-	&:active {
+	&:hover, &:active {
 		outline: 0;
 	}
+        
+        text-decoration: none;
 }

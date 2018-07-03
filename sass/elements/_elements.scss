@@ -1,11 +1,19 @@
-html {
-	box-sizing: border-box;
+html[lang] {
+	box-sizing: content-box;
+        margin: 0 !important;
+	body { margin: 0 !important; }
+	@media screen and ( max-width: 782px ) {
+		margin: 0 !important;
+		body { margin: 0 !important; }
+	}
 }
 
 *,
 *:before,
 *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
+        margin: 0;
+        padding: 0;
 }
 
 body {
