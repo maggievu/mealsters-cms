@@ -28,7 +28,7 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
+//			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -48,9 +48,9 @@
 		<nav id="site-navigation" class="main-navigation">
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-primary',
-				'menu_id'        => 'menu-primary',
-                                'menu_class'     => 'menu-primary menu menu-nav',
+				'theme_location' => 'menu-header',
+				'menu_id'        => 'menu-header',
+                                'menu_class'     => 'menu-header menu menu-nav',
                                 'container'      => '',
 			) );
 			?>

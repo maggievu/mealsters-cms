@@ -419,6 +419,21 @@ big {
   font-size: 125%; }
 
 /*--------------------------------------------------------------
+## Typography for menu and nav links
+--------------------------------------------------------------*/
+.menu-footer a, .menu-social a, .site-info {
+  font-size: 13.6px;
+  font-size: 0.85rem; }
+
+.footer-footnote {
+  font-size: 11.2px;
+  font-size: 0.7rem;
+  margin-bottom: .5rem; }
+  .footer-footnote p {
+    margin: 0;
+    color: #e8e8e8; }
+
+/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 html[lang] {
@@ -568,13 +583,16 @@ a {
   color: #ee0073;
   text-decoration: none; }
   a:visited {
-    color: purple; }
+    color: #ee0073; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #7359ff; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
     outline: 0; }
+
+.current-menu-item a {
+  color: #f35aa0; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -610,8 +628,7 @@ a {
     float: left;
     position: relative; }
   .main-navigation a {
-    display: block;
-    text-decoration: none; }
+    display: block; }
 
 /* Small menu. */
 .menu-toggle,
@@ -641,6 +658,51 @@ a {
   text-align: right;
   width: 50%; }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/*--------------------------------------------------------------
+## Menu Header (nav '.main-navigation' > ul '.menu-header')
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
+--------------------------------------------------------------*/
+.menu-footer a, .menu-social a {
+  color: #f65762; }
+  .menu-footer a:hover, .menu-social a:hover {
+    color: #f58ca3; }
+
+/*--------------------------------------------------------------
+## Menu Social (div '.social-navigation' > ul '.menu-social')
+--------------------------------------------------------------*/
+.menu-social a span {
+  display: block; }
+.menu-social a::before {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webit-font-smoothing: antialised; }
+.menu-social a[href*='facebook']:before {
+  content: '\f082'; }
+  .menu-social a[href*='facebook']:before:hover {
+    color: midnightblue; }
+.menu-social a[href*='twitter']:before {
+  content: '\f081'; }
+.menu-social a[href*='instagram']:before {
+  content: '\f16d'; }
+.menu-social a[href*='pinterest']:before {
+  content: '\f0d3'; }
+.menu-social a[href*='youtube']:before {
+  content: '\f431'; }
+
+/*--------------------------------------------------------------
+## 
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -757,6 +819,44 @@ a {
     Created on : Jul 2, 2018, 3:26:29 PM
     Author     : Maggie
 */
+.site-footer {
+  background: #2d2d2d; }
+  .site-footer .site-info {
+    background-color: white;
+    text-align: center;
+    padding: .3rem 0; }
+
+.footer-content {
+  max-width: 1000px;
+  margin: auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.footer-logo {
+  flex-basis: 30%; }
+
+.footer-search {
+  flex-basis: 70%;
+  text-align: right; }
+
+.footer-navigation {
+  flex-basis: 55%;
+  margin: 2rem 0; }
+
+.social-navigation {
+  flex-basis: 20%;
+  margin: 2rem 0;
+  text-align: right; }
+
+.menu-footer, .menu-social {
+  display: flex;
+  flex-flow: row nowrap; }
+  .menu-footer li, .menu-social li {
+    flex-grow: 1; }
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -820,6 +920,10 @@ object {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
   display: inline-block; }
+
+.footer-logo img {
+  width: 50px;
+  height: auto; }
 
 /*--------------------------------------------------------------
 ## Captions

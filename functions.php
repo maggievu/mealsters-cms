@@ -44,8 +44,9 @@ if ( ! function_exists( 'mealsters_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-primary' => esc_html__( 'Menu Primary', 'mealsters' ),
+			'menu-header' => esc_html__( 'Menu Header', 'mealsters' ),
 			'menu-social' => esc_html__( 'Menu Social', 'mealsters' ),
+			'menu-footer' => esc_html__( 'Menu Footer', 'mealsters' ),
 		) );
 
 		/*
@@ -79,6 +80,7 @@ if ( ! function_exists( 'mealsters_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
+                        'header-text' => array( 'site-title', 'site-description' ),
 		) );
 	}
 endif;
@@ -122,6 +124,8 @@ add_action( 'widgets_init', 'mealsters_widgets_init' );
  */
 function mealsters_scripts() {
 	wp_enqueue_style( 'mealsters-style', get_stylesheet_uri() );
+        
+        wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
         
 	wp_enqueue_style( 'mealsters-style_google-fonts', "https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i,700,700i|Open+Sans:300,300i,400,400i,700,700i,800,800i" );
 
