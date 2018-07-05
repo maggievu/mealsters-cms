@@ -379,8 +379,11 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: "asap", verdana, helvetica, arial, sans-serif; }
 
+.widget-title {
+  color: #ee0073; }
+
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: .5rem; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -415,8 +418,23 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-big {
+/*--------------------------------------------------------------
+## Define all the font-size variations
+--------------------------------------------------------------*/
+big, .big {
   font-size: 125%; }
+
+.bigger {
+  font-size: 150%; }
+
+small, .small {
+  font-size: 90%; }
+
+.smaller {
+  font-size: 85%; }
+
+.smallest {
+  font-size: 70%; }
 
 /*--------------------------------------------------------------
 ## Typography for menu and nav links
@@ -432,6 +450,12 @@ big {
   .footer-footnote p {
     margin: 0;
     color: #e8e8e8; }
+
+.footer-logo-description {
+  margin-left: .5rem;
+  color: #e8e8e8;
+  font-size: 14.4px;
+  font-size: 0.9rem; }
 
 /*--------------------------------------------------------------
 # Elements
@@ -808,12 +832,50 @@ ul {
 */
 .site-header {
   background: linear-gradient(to bottom right, #f2398e, #ffa800);
-  min-height: 50vh;
+  min-height: 100vh;
   display: grid;
+  grid-template-rows: 100px auto;
+  grid-template-columns: 1fr minmax(min-content, 600px) minmax(min-content, 400px) 1fr;
   justify-content: center;
-  align-content: center; }
-  .site-header .site-title a {
+  align-items: center; }
+  .site-header .site-branding {
+    grid-column: 2/3; }
+  .site-header h1.site-title {
+    margin-bottom: 0; }
+  .site-header a, .site-header p, .site-header span {
     color: #e8e8e8; }
+  .site-header .main-navigation {
+    /*justify-self: end;*/
+    grid-column: 3/4;
+    text-align: center; }
+    .site-header .main-navigation .menu-header {
+      display: flex;
+      flex-flow: row wrap; }
+      .site-header .main-navigation .menu-header li {
+        flex-grow: 1; }
+      .site-header .main-navigation .menu-header a {
+        padding: .5rem 0; }
+      .site-header .main-navigation .menu-header .current-menu-item a, .site-header .main-navigation .menu-header a:hover {
+        box-shadow: 0 -3px inset white; }
+  .site-header .header-content {
+    grid-column: 1/-1;
+    justify-self: center;
+    text-align: center; }
+    .site-header .header-content .big {
+      font-size: 24px;
+      font-size: 1.5rem; }
+    .site-header .header-content .bigger {
+      font-size: 48px;
+      font-size: 3rem; }
+    .site-header .header-content span {
+      font-size: 14.4px;
+      font-size: 0.9rem;
+      display: inline-block;
+      text-transform: uppercase;
+      margin: 2rem 1.5rem;
+      padding: 1rem 1.5rem;
+      background: #a493ff;
+      border-radius: 2rem; }
 
 /* 
     Created on : Jul 2, 2018, 3:26:29 PM
@@ -836,14 +898,17 @@ ul {
   align-items: center; }
 
 .footer-logo {
-  flex-basis: 30%; }
+  /*flex-grow: 1;*/ }
+
+.footer-logo-description {
+  /*flex-grow: 1;*/ }
 
 .footer-search {
-  flex-basis: 70%;
+  flex-grow: 1;
   text-align: right; }
 
 .footer-navigation {
-  flex-basis: 55%;
+  flex-basis: 60%;
   margin: 2rem 0; }
 
 .social-navigation {

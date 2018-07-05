@@ -5,12 +5,58 @@
 
 .site-header {
     background: linear-gradient(to bottom right, $color__violetred, $color__weborange);
-    min-height: 50vh;
+    min-height: 100vh;  
     display: grid;
+    grid-template-rows: 100px auto;
+    grid-template-columns: 1fr minmax(min-content,600px) minmax(min-content,400px) 1fr;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     
-    .site-title a {
+    .site-branding { grid-column: 2/3; }
+    
+    h1.site-title {
+        margin-bottom: 0;
+    }
+    
+    a, p, span {
         color: $color__white;
+    }
+    
+    .main-navigation {
+        /*justify-self: end;*/
+        grid-column: 3/4;
+        text-align: center;
+        
+        .menu-header {
+            display: flex;
+            flex-flow: row wrap;
+            li {
+                flex-grow: 1; 
+            }
+            
+            a { padding: .5rem 0; }
+            .current-menu-item a, a:hover {
+                box-shadow: 0 -3px inset white;
+            }
+        }
+    }
+    
+    .header-content {
+        grid-column: 1/-1;
+        justify-self: center;
+        text-align: center;
+        
+        .big { @include font-size(1.5); }
+        .bigger { @include font-size(3); }
+        
+        span {
+            @include font-size(.9);
+            display: inline-block;
+            text-transform: uppercase;
+            margin: 2rem 1.5rem;
+            padding: 1rem 1.5rem;
+            background: $color__blue;
+            border-radius: 2rem;
+        }
     }
 }

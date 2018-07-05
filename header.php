@@ -28,7 +28,7 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-//			the_custom_logo();
+			//the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -41,7 +41,7 @@
 			$mealsters_description = get_bloginfo( 'description', 'display' );
 			if ( $mealsters_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>
+				<p class="site-description smallest"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
@@ -55,6 +55,14 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+                
+                <div class="header-content">
+                    <p class="bigger">Don't know what to eat?</p>
+                    <p class="big">You're at the right place. Keep swiping!</p>
+                    <span>For iOS</span>
+                    <span>For Android</span>
+		</div><!-- .header-content -->
+                
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

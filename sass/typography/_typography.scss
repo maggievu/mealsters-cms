@@ -31,3 +31,9 @@ textarea {
         color: $color__white;
     }
 }
+
+.footer-logo-description {
+    margin-left: .5rem;
+    color: $color__white;
+    @include font-size(.9);
+}

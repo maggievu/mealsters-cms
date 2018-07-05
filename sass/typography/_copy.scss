@@ -1,5 +1,5 @@
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: .5rem;
 }
 
 dfn, cite, em, i {
@@ -40,6 +40,26 @@ mark, ins {
 	text-decoration: none;
 }
 
-big {
-	font-size: 125%;
+/*--------------------------------------------------------------
+## Define all the font-size variations
+--------------------------------------------------------------*/
+
+big, .big {
+	font-size: 125%; //1.25rem
+}
+
+.bigger {
+	font-size: 150%; //1.5rem
+}
+
+small, .small {
+	font-size: 90%; //0.9rem
+}
+
+.smaller {
+	font-size: 85%; //0.85rem
+}
+
+.smallest {
+	font-size: 70%; //0.7rem
 }
