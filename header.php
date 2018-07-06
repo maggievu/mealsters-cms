@@ -26,12 +26,13 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mealsters' ); ?></a>
 
 	<header id="masthead" class="site-header">
+                <img src="<?php header_image(); ?>" alt="Header's background">
 		<div class="site-branding">
 			<?php
-			//the_custom_logo();
+			
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><?php the_custom_logo(); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
@@ -41,7 +42,7 @@
 			$mealsters_description = get_bloginfo( 'description', 'display' );
 			if ( $mealsters_description || is_customize_preview() ) :
 				?>
-				<p class="site-description smallest"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>
+				<!--<p class="site-description smallest"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>-->
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
@@ -55,13 +56,17 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+                <hr>
                 
                 <div class="header-content">
                     <p class="bigger">Don't know what to eat?</p>
                     <p class="big">You're at the right place. Keep swiping!</p>
-                    <span>For iOS</span>
-                    <span>For Android</span>
+                    <a href="#" class="ios"> For iOS</a>
+                    <a href="#" class="android"> For Android</a>
 		</div><!-- .header-content -->
+                <div class="header-demo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/1.png" style="width: 300px;" alt="phone">
+                </div>
                 
 	</header><!-- #masthead -->
 

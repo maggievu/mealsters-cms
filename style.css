@@ -484,7 +484,8 @@ body {
   /* Fallback for when there is no custom background color defined. */ }
 
 hr {
-  background-color: #ccc;
+  background-color: #f2f2f2;
+  opacity: .2;
   border: 0;
   height: 1px;
   margin-bottom: 1.5em; }
@@ -652,7 +653,7 @@ a {
     float: left;
     position: relative; }
   .main-navigation a {
-    display: block; }
+    /*display: block;*/ }
 
 /* Small menu. */
 .menu-toggle,
@@ -690,6 +691,19 @@ ul {
 /*--------------------------------------------------------------
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
+.ios::before, .android::before {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webit-font-smoothing: antialised; }
+
+.ios::before {
+  content: '\f179'; }
+
+.android::before {
+  content: '\f17b'; }
+
 /*--------------------------------------------------------------
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
 --------------------------------------------------------------*/
@@ -831,17 +845,39 @@ ul {
     Author     : Maggie
 */
 .site-header {
-  background: linear-gradient(to bottom right, #f2398e, #ffa800);
   min-height: 100vh;
+  /*overflow: hidden;*/
   display: grid;
   grid-template-rows: 100px auto;
   grid-template-columns: 1fr minmax(min-content, 600px) minmax(min-content, 400px) 1fr;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
+  .site-header::after {
+    content: " ";
+    background: linear-gradient(to bottom right, #ffa800, #f2398e);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+    z-index: -100; }
+  .site-header > img {
+    position: absolute;
+    width: 100vw;
+    object-fit: cover;
+    bottom: 0;
+    left: 0;
+    z-index: -101; }
   .site-header .site-branding {
     grid-column: 2/3; }
   .site-header h1.site-title {
-    margin-bottom: 0; }
+    margin: 0; }
+    .site-header h1.site-title img {
+      width: 35px;
+      height: auto;
+      vertical-align: middle; }
   .site-header a, .site-header p, .site-header span {
     color: #e8e8e8; }
   .site-header .main-navigation {
@@ -853,12 +889,16 @@ ul {
       flex-flow: row wrap; }
       .site-header .main-navigation .menu-header li {
         flex-grow: 1; }
-      .site-header .main-navigation .menu-header a {
-        padding: .5rem 0; }
+        .site-header .main-navigation .menu-header li a {
+          padding-bottom: .5rem; }
       .site-header .main-navigation .menu-header .current-menu-item a, .site-header .main-navigation .menu-header a:hover {
-        box-shadow: 0 -3px inset white; }
+        box-shadow: 0 -3px inset #bebebe;
+        color: #bebebe; }
+  .site-header hr {
+    grid-column: 2/ -2;
+    align-self: start; }
   .site-header .header-content {
-    grid-column: 1/-1;
+    grid-column: 2/3;
     justify-self: center;
     text-align: center; }
     .site-header .header-content .big {
@@ -866,16 +906,25 @@ ul {
       font-size: 1.5rem; }
     .site-header .header-content .bigger {
       font-size: 48px;
-      font-size: 3rem; }
-    .site-header .header-content span {
+      font-size: 3rem;
+      font-weight: 600; }
+    .site-header .header-content a {
       font-size: 14.4px;
       font-size: 0.9rem;
       display: inline-block;
       text-transform: uppercase;
       margin: 2rem 1.5rem;
       padding: 1rem 1.5rem;
-      background: #a493ff;
-      border-radius: 2rem; }
+      background: #907bff;
+      border-radius: 2rem;
+      transition: all .5s ease; }
+      .site-header .header-content a:hover {
+        background: #7359ff; }
+  .site-header .header-demo {
+    grid-column: 3/4;
+    justify-self: end;
+    position: absolute;
+    bottom: -10rem; }
 
 /* 
     Created on : Jul 2, 2018, 3:26:29 PM
@@ -983,9 +1032,8 @@ object {
   max-width: 100%; }
 
 /* Make sure logo link wraps around logo image. */
-.custom-logo-link {
+.footer-logo .custom-logo-link {
   display: inline-block; }
-
 .footer-logo img {
   width: 50px;
   height: auto; }

@@ -21,7 +21,8 @@ body {
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: $color__white-light;
+        opacity: .2;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;

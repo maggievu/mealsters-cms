@@ -51,7 +51,7 @@
 	}
 
 	a {
-		display: block;
+		/*display: block;*/
 	}
 
 	.current_page_item > a,
@@ -106,7 +106,21 @@ ul {
 /*--------------------------------------------------------------
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
+.ios::before, .android::before {
+        font-family: $font__fontawesome;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webit-font-smoothing: antialised;
+}
 
+.ios::before {
+    content: '\f179';
+}
+
+.android::before {
+    content: '\f17b';
+}
 
 /*--------------------------------------------------------------
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')

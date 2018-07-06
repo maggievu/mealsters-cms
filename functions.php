@@ -82,6 +82,16 @@ if ( ! function_exists( 'mealsters_setup' ) ) :
 			'flex-height' => true,
                         'header-text' => array( 'site-title', 'site-description' ),
 		) );
+                
+                
+		// Set up WP custom header image.
+//		add_theme_support( 'custom-header', array(
+//			'height'      => 1000,
+//			'width'       => 1000,
+//			'flex-width'  => true,
+//			'flex-height' => true,
+//                        'uploads'     => true,
+//		) );
 	}
 endif;
 add_action( 'after_setup_theme', 'mealsters_setup' );
