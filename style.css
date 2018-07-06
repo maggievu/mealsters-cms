@@ -902,7 +902,7 @@ ul {
     align-self: start; }
   .site-header .header-content {
     grid-column: 2/3;
-    justify-self: center;
+    justify-self: start;
     align-self: start;
     text-align: center; }
     .site-header .header-content .big {
