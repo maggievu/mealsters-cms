@@ -873,11 +873,14 @@ ul {
   .site-header .site-branding {
     grid-column: 2/3; }
   .site-header h1.site-title {
-    margin: 0; }
+    margin: 0;
+    font-weight: 600; }
     .site-header h1.site-title img {
       width: 35px;
       height: auto;
       vertical-align: middle; }
+    .site-header h1.site-title a {
+      color: #fff; }
   .site-header a, .site-header p, .site-header span {
     color: #e8e8e8; }
   .site-header .main-navigation {

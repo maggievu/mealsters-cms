@@ -32,7 +32,7 @@
 			
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><?php the_custom_logo(); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" style="width: 35px;" alt="logo"> <?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
@@ -65,7 +65,7 @@
                     <a href="#" class="android"> For Android</a>
 		</div><!-- .header-content -->
                 <div class="header-demo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/1.png" style="width: 300px;" alt="phone">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="phone">
                 </div>
                 
 	</header><!-- #masthead -->

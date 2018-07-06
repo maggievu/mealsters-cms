@@ -17,7 +17,13 @@
     
     <div class="footer-content">
             <div class="footer-logo"><?php the_custom_logo(); ?></div> 
-            <div class="footer-logo-description">put some content here</div>
+            <div class="footer-logo-description">
+                    <?php $mealsters_description = get_bloginfo( 'description', 'display' );
+                    if ( $mealsters_description || is_customize_preview() ) :
+                    ?>
+                    <p class="site-description"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>
+                    <?php endif; ?>
+            </div>
             <div class="footer-search"><?php get_search_form(); ?></div>
 
             <nav id="footer-navigation" class="footer-navigation">
