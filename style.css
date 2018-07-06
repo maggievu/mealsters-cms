@@ -903,6 +903,7 @@ ul {
   .site-header .header-content {
     grid-column: 2/3;
     justify-self: center;
+    align-self: start;
     text-align: center; }
     .site-header .header-content .big {
       font-size: 24px;
