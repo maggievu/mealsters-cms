@@ -16,7 +16,7 @@
     <!-- The footer will have 2 children .footer-content and .site-info -->
     
     <div class="footer-content">
-            <div class="footer-logo"><?php the_custom_logo(); ?></div> 
+            <div class="footer-logo blinky"><?php the_custom_logo(); ?></div> 
             <div class="footer-logo-description">
                     <?php $mealsters_description = get_bloginfo( 'description', 'display' );
                     if ( $mealsters_description || is_customize_preview() ) :

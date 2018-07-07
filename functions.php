@@ -135,13 +135,21 @@ add_action( 'widgets_init', 'mealsters_widgets_init' );
 function mealsters_scripts() {
 	wp_enqueue_style( 'mealsters-style', get_stylesheet_uri() );
         
-        wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
-        
 	wp_enqueue_style( 'mealsters-style_google-fonts', "https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i,700,700i|Open+Sans:300,300i,400,400i,700,700i,800,800i" );
+        
+        wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
 
-	wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	//wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', array(), '20151215', true );
+	
+        wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	
+        //script to make blinking arrow appear after an element
+        wp_enqueue_script( 'mealsters-blinky', get_template_directory_uri() . '/js/blinky.js', array('jquery'), '20151215', true );
 
 	wp_enqueue_script( 'mealsters-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+        
+        //script to wrap YOUTUBE videos in a DIV, so it can be styled responsively.
+	wp_enqueue_script( 'mealsters-fluidvideo', get_template_directory_uri() . '/js/fluidvideo.js', array('jquery'), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -1089,4 +1089,22 @@ object {
 .gallery-caption {
   display: block; }
 
+/*--------------------------------------------------------------
+## Animations
+--------------------------------------------------------------*/
+/* 
+    Created on : Jul 6, 2018, 9:57:23 PM
+    Author     : Maggie
+*/
+.blinky::after {
+  margin-left: 0.25em;
+  font-size: 2em;
+  vertical-align: middle;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c8"; }
+
+.blinky.arrow::after {
+  content: "\f152"; }
+
 /*# sourceMappingURL=style.css.map */
