@@ -26,11 +26,14 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mealsters' ); ?></a>
 
 	<header id="masthead" class="site-header">
-                <img src="<?php header_image(); ?>" alt="Header's background">
+            
+                <?php if ( get_header_image() && is_front_page()) : ?>
+                <div class="header-background">
+                    <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="Header's background">
+                </div>
+                <?php endif; ?>
 		<div class="site-branding">
-			<?php
-			
-			if ( is_front_page() && is_home() ) :
+			<?php if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" style="width: 35px;" alt="logo"> <?php bloginfo( 'name' ); ?></a></h1>
 				<?php

@@ -21,7 +21,7 @@ function mealsters_custom_header_setup() {
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
-		'height'                 => 250,
+		'height'                 => 600,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'mealsters_header_style',
 	) ) );
