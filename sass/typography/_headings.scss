@@ -3,6 +3,12 @@ h1, h2, h3, h4, h5, h6 {
         font-family: $font__heading;
 }
 
-.widget-title {
+.intro-app-text h2, .intro-step-heading, .section-title {
+    @include font-size(2);
+    margin-bottom: 1rem;
+}
+
+.widget-title, .section-title {
     color: $color__violetred-dark;
+    text-align: center;
 }

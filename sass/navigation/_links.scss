@@ -17,6 +17,13 @@ a {
         
 }
 
+.entry-title a {
+    color: $color__black;
+    &:hover {
+        color: $color__black-light;
+    }
+}
+
 
 
 .current-menu-item a {

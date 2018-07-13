@@ -30,9 +30,9 @@
                 <?php
                     wp_nav_menu(array(
                         'theme_location' => 'menu-footer',
-                        'menu_id' => 'menu-footer',
-                        'menu_class' => 'menu-footer menu menu-nav',
-                        'container' => '',
+                        'menu_id'        => 'menu-footer',
+                        'menu_class'     => 'menu-footer menu menu-nav',
+                        'container'      => '',
                     ));
                 ?>
             </nav> <!-- .footer-navigation -->
@@ -42,11 +42,11 @@
                 <?php
                     wp_nav_menu(array(
                         'theme_location' => 'menu-social',
-                        'menu_id' => 'menu-social',
-                        'menu_class' => 'menu-social menu',
-                        'link_before' => '<span class="screen-reader-text">',
-                        'link_after' => '</span>',
-                        'container' => '',
+                        'menu_id'        => 'menu-social',
+                        'menu_class'     => 'menu-social menu',
+                        'link_before'    => '<span class="screen-reader-text">',
+                        'link_after'     => '</span>',
+                        'container'      => '',
                     ));
                 ?>
             </div> <!-- .social-navigation -->
