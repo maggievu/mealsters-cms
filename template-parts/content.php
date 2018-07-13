@@ -38,8 +38,8 @@
 				/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mealsters' ),
 				array(
-					'span' => array(
-						'class' => array(),
+					'span'  => array(
+					'class' => array(),
 					),
 				)
 			),

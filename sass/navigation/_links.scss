@@ -6,7 +6,7 @@ a {
 		color: $color__violetred-dark;
 	}
 	&:hover, &:focus, &:active {
-		color: $color__blue-darker;
+		color: $color__violetred-light;
 	}
 	&:focus {
 		outline: thin dotted;
@@ -21,4 +21,87 @@ a {
 
 .current-menu-item a {
         color: $color__violetred-light; 
+}
+
+
+/*--------------------------------------------------------------
+## Menu Header (nav '.main-navigation' > ul '.menu-header')
+--------------------------------------------------------------*/
+.main-navigation {
+    .current-menu-item a, a:hover {
+        box-shadow: 0 -3px inset $color__white-dark;
+        color: $color__white-dark;
+    }
+}
+
+.ios::before, .android::before {
+        font-family: $font__fontawesome;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webit-font-smoothing: antialised;
+}
+
+.ios::before {
+    content: '\f179';
+}
+
+.android::before {
+    content: '\f17b';
+}
+
+
+/*--------------------------------------------------------------
+## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
+--------------------------------------------------------------*/
+.menu-footer a, .menu-social a {
+    color: $color__red;
+    &:hover {
+        color: $color__pink;
+    }
+}
+
+/*--------------------------------------------------------------
+## Menu Social (div '.social-navigation' > ul '.menu-social')
+--------------------------------------------------------------*/
+.menu-social {
+    
+    a span {
+        display: block;
+    }
+    
+    a::before {
+        font-family: $font__fontawesome;
+        @include font-size(1.5);
+    
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webit-font-smoothing: antialised;
+    }
+        
+    a[href*='facebook']:before {
+            content: '\f082';
+            
+            &:hover {
+                color: $color__link-hover;
+            }
+    }
+    
+    a[href*='twitter']:before {
+            content: '\f081';
+    }
+    
+    a[href*='instagram']:before {
+            content: '\f16d';
+    }
+    
+    a[href*='pinterest']:before {
+            content: '\f0d3';
+    }
+    
+    a[href*='youtube']:before {
+            content: '\f431';
+    }
+    
 }

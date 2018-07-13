@@ -54,10 +54,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 ## Define the colors black and white                          
 --------------------------------------------------------------*/
 /*$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;*/
-/* 
-    Created on : Jun 24, 2018, 12:24:13 PM
-    Author     : Maggie
-*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -689,7 +685,7 @@ a:visited {
   color: #ee0073;
 }
 a:hover, a:focus, a:active {
-  color: #7359ff;
+  color: #f35aa0;
 }
 a:focus {
   outline: thin dotted;
@@ -700,6 +696,74 @@ a:hover, a:active {
 
 .current-menu-item a {
   color: #f35aa0;
+}
+
+/*--------------------------------------------------------------
+## Menu Header (nav '.main-navigation' > ul '.menu-header')
+--------------------------------------------------------------*/
+.main-navigation .current-menu-item a, .main-navigation a:hover {
+  box-shadow: 0 -3px inset #bebebe;
+  color: #bebebe;
+}
+
+.ios::before, .android::before {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webit-font-smoothing: antialised;
+}
+
+.ios::before {
+  content: '\f179';
+}
+
+.android::before {
+  content: '\f17b';
+}
+
+/*--------------------------------------------------------------
+## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
+--------------------------------------------------------------*/
+.menu-footer a, .menu-social a {
+  color: #f65762;
+}
+.menu-footer a:hover, .menu-social a:hover {
+  color: #f58ca3;
+}
+
+/*--------------------------------------------------------------
+## Menu Social (div '.social-navigation' > ul '.menu-social')
+--------------------------------------------------------------*/
+.menu-social a span {
+  display: block;
+}
+.menu-social a::before {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webit-font-smoothing: antialised;
+}
+.menu-social a[href*='facebook']:before {
+  content: '\f082';
+}
+.menu-social a[href*='facebook']:before:hover {
+  color: midnightblue;
+}
+.menu-social a[href*='twitter']:before {
+  content: '\f081';
+}
+.menu-social a[href*='instagram']:before {
+  content: '\f16d';
+}
+.menu-social a[href*='pinterest']:before {
+  content: '\f0d3';
+}
+.menu-social a[href*='youtube']:before {
+  content: '\f431';
 }
 
 /*--------------------------------------------------------------
@@ -791,66 +855,9 @@ ul {
 /*--------------------------------------------------------------
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
-.ios::before, .android::before {
-  font-family: "Font Awesome 5 Brands";
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webit-font-smoothing: antialised;
-}
-
-.ios::before {
-  content: '\f179';
-}
-
-.android::before {
-  content: '\f17b';
-}
-
 /*--------------------------------------------------------------
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
 --------------------------------------------------------------*/
-.menu-footer a, .menu-social a {
-  color: #f65762;
-}
-.menu-footer a:hover, .menu-social a:hover {
-  color: #f58ca3;
-}
-
-/*--------------------------------------------------------------
-## Menu Social (div '.social-navigation' > ul '.menu-social')
---------------------------------------------------------------*/
-.menu-social a span {
-  display: block;
-}
-.menu-social a::before {
-  font-family: "Font Awesome 5 Brands";
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webit-font-smoothing: antialised;
-}
-.menu-social a[href*='facebook']:before {
-  content: '\f082';
-}
-.menu-social a[href*='facebook']:before:hover {
-  color: midnightblue;
-}
-.menu-social a[href*='twitter']:before {
-  content: '\f081';
-}
-.menu-social a[href*='instagram']:before {
-  content: '\f16d';
-}
-.menu-social a[href*='pinterest']:before {
-  content: '\f0d3';
-}
-.menu-social a[href*='youtube']:before {
-  content: '\f431';
-}
-
 /*--------------------------------------------------------------
 ## 
 --------------------------------------------------------------*/
@@ -952,10 +959,27 @@ ul {
 /*--------------------------------------------------------------
 ## Main Layout
 --------------------------------------------------------------*/
-/* 
-    Created on : Jul 7, 2018, 8:19:08 PM
-    Author     : Maggie
-*/
+.home .site-main {
+  margin-top: 15rem !important;
+}
+.home .site-main .section-category .post {
+  padding: 1rem;
+  margin: 0 1% 1.5rem;
+  box-sizing: border-box;
+}
+@media screen and (min-width: 768px) {
+  .home .site-main .section-category {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .home .site-main .section-category .page-header, .home .site-main .section-category .navigation {
+    flex: 1 0 98%;
+  }
+  .home .site-main .section-category .post {
+    flex: 1 0 31.333%;
+  }
+}
+
 /*--------------------------------------------------------------
 ## Header & Footer
 --------------------------------------------------------------*/
@@ -1044,10 +1068,6 @@ ul {
 .site-header .main-navigation .menu-header li a {
   padding-bottom: .5rem;
 }
-.site-header .main-navigation .menu-header .current-menu-item a, .site-header .main-navigation .menu-header a:hover {
-  box-shadow: 0 -3px inset #bebebe;
-  color: #bebebe;
-}
 .site-header hr {
   grid-column: 2/ -2;
   align-self: start;
@@ -1087,10 +1107,6 @@ ul {
   bottom: -15rem;
 }
 
-/* 
-    Created on : Jul 2, 2018, 3:26:29 PM
-    Author     : Maggie
-*/
 .site-footer {
   background: #2d2d2d;
 }

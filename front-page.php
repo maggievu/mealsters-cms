@@ -17,38 +17,83 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+                    
+                     <!-- LOOP ONE: DISCOVERIES -->
+                    <?php
+                    
+                    echo '<section class="section-category discoveries">';
+                            $discoveries_query = new WP_Query( array(
+                                    'category_name' => 'discoveries', 
+                                    'posts_per_page' => '3',
+                                    'orderby' => 'rand',
+                                ) );
 
-		<?php
-		if ( have_posts() ) :
+                    if ( $discoveries_query->have_posts() ) : ?>
+                        
+                        <header class="page-header"><h2 class="page-title">Discoveries</h2></header>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-                                    <header>
-                                            <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                                    </header>
-				<?php
-			endif;
+                        <?php /* Start the Loop */
+                        while ( $discoveries_query->have_posts() ) : $discoveries_query->the_post();
+                            get_template_part( 'template-parts/content', get_post_type() );
+                        endwhile;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+                    else :
+                        get_template_part( 'template-parts/content', 'none' );
+                    endif; 
+                    wp_reset_postdata();
+                    echo '</section>';
+                    ?>
+                
+                <!-- LOOP TWO: OUR STORY -->
+                    <?php
+                    
+                    echo '<section class="section-category our-story">';
+                            $story_query = new WP_Query( array(
+                                    'category_name' => 'our-story', 
+                                    'posts_per_page' => '2',
+                                    'orderby' => 'rand',
+                                ) );
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+                    if ( $story_query->have_posts() ) : ?>
+                        <header class="page-header"><h2 class="page-title">Our Story</h2></header>
+                        <?php
+                            /* Start the Loop */
+                            while ( $story_query->have_posts() ) : $story_query->the_post();
+                                get_template_part( 'template-parts/content', get_post_type() );
+                            endwhile;
 
-			endwhile;
+                    else :
+                            get_template_part( 'template-parts/content', 'none' );
+                    endif; 
+                    wp_reset_postdata();
+                    echo '</section>';
+                    ?>
+                
+                <!-- LOOP THREE: EVENTS -->
+                    <?php
+                    
+                    echo '<section class="section-category events">';
+                            $events_query = new WP_Query( array(
+                                    'category_name' => 'events', 
+                                    'posts_per_page' => '3',
+                                    'orderby' => 'rand',
+                                ) );
 
-			the_posts_navigation();
+                    if ( $events_query->have_posts() ) : ?>
+                        <header class="page-header"><h2 class="page-title">Events</h2></header>
 
-		else :
+                        <?php
+                            /* Start the Loop */
+                            while ( $events_query->have_posts() ) : $events_query->the_post();
+                                get_template_part( 'template-parts/content', get_post_type() );
+                            endwhile;
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+                    else :
+                        get_template_part( 'template-parts/content', 'none' );
+                    endif; 
+                    wp_reset_postdata();
+                    echo '</section>';
+                    ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

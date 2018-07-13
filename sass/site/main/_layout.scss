@@ -1,5 +1,21 @@
-/* 
-    Created on : Jul 7, 2018, 8:19:08 PM
-    Author     : Maggie
-*/
-
+.home .site-main {
+    margin-top: 15rem !important;
+    .section-category {
+        .post {
+            padding: 1rem;
+            margin: 0 1% 1.5rem;
+            box-sizing: border-box;
+        }
+        
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            .page-header, .navigation {
+                flex: 1 0 98%;
+            }   
+            .post {
+                flex: 1 0 31.333%;
+            }
+        }
+    }
+}
