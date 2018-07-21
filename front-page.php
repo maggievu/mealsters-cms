@@ -27,8 +27,6 @@ get_header();
                     </section>
                     
                     <section class="intro-step">
-                        <img class="intro-step-background" src="<?php echo get_template_directory_uri(); ?>/img/katherine-chase-493940-unsplash.jpg" alt="Tasty salad background">
-                        
                         <h2 class="intro-step-heading">How does Mealsters work?</h2>
                         
                         <div class="intro-step-main">

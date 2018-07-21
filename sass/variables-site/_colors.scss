@@ -29,7 +29,7 @@ $color__weborange-lighter: #ffc765;
 
 
 /*--------------------------------------------------------------
-## Define the support colors: blue, red and pink              
+## Define the support colors: blue, red, pink and coral (extra)              
 --------------------------------------------------------------*/
 $color__blue: #a493ff;
 //rgb(164,147,255)
@@ -52,19 +52,24 @@ $color__pink-dark: #f36f8c;
 $color__pink-darker: #f0486d;
 //rgb(240,72,109)
 
+$color__coral: #fb8445;
+//tgb(251,132,69)
+
+
 /*--------------------------------------------------------------
 ## Define the colors black and white                          
 --------------------------------------------------------------*/
 $color__white: #e8e8e8;
 //rgb(232,232,232)
-$color__white-dark: #ccc;
-//rgb(204,204,204)
+$color__white-dark: #cfcfcf;
+//rgb(207,207,207)
 $color__white-darker: #a3a3a3;
 //rgb(163,163,163)
 $color__white-light: #f2f2f2;
 //rgb(242,242,242)
 $color__white-lighter: #fff;
 //rgb(255,255,255)
+
 $color__black: #2d2d2d;
 //rgb(45,45,45)
 $color__black-dark: #1a1a1a;
@@ -73,9 +78,12 @@ $color__black-darker: #000;
 //rgb(0,0,0)
 $color__black-light: #696969;
 //rgb(105,105,105)
-$color__black-lighter: #ababab;
-//rgb(171,171,171)
+$color__black-lighter: #909090;
+//rgb(144,144,144)
 
+
+
+//WP default colors
 $color__background-header: #fff;
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;

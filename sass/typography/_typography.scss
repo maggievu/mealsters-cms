@@ -14,26 +14,3 @@ textarea {
 
 @import "copy";
 
-
-/*--------------------------------------------------------------
-## Typography for menu and nav links
---------------------------------------------------------------*/
-
-.menu-footer a, .menu-social a, .site-info {
-    @include font-size(.85);
-}
-
-.footer-footnote {
-    @include font-size(.7);
-    margin-bottom: .5rem;
-    p {
-        margin: 0;
-        color: $color__white;
-    }
-}
-
-.footer-logo-description {
-    margin-left: .5rem;
-    color: $color__white;
-    @include font-size(.9);
-}

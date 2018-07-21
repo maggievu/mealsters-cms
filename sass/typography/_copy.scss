@@ -41,7 +41,7 @@ mark, ins {
 }
 
 /*--------------------------------------------------------------
-## Define all the font-size variations
+## Define all the font-size variations (for convenient purposes)
 --------------------------------------------------------------*/
 
 big, .big {
@@ -64,4 +64,41 @@ small, .small {
 
 .smallest {
 	font-size: 70%; //0.7rem
+}
+
+
+/*--------------------------------------------------------------
+## Typography for footer footnote
+--------------------------------------------------------------*/
+
+.entry-meta, .entry-footer {
+    @include font-size(.9);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+/*--------------------------------------------------------------
+## Typography for menu and nav links
+--------------------------------------------------------------*/
+
+.menu-footer a, .menu-social a, .site-info {
+    @include font-size(.85);
+}
+
+.footer-footnote {
+    @include font-size(.7);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: .5rem;
+    p {
+        margin: 0;
+        color: $color__white;
+    }
+}
+
+.footer-logo-description {
+    margin-left: .5rem;
+    color: $color__white;
+    @include font-size(.9);
 }

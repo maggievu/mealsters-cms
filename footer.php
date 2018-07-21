@@ -16,7 +16,7 @@
     <!-- The footer will have 2 children .footer-content and .site-info -->
     
     <div class="footer-content">
-            <div class="footer-logo blinky"><?php the_custom_logo(); ?></div> 
+            <div class="footer-logo"><?php the_custom_logo(); ?></div> 
             <div class="footer-logo-description">
                     <?php $mealsters_description = get_bloginfo( 'description', 'display' );
                     if ( $mealsters_description || is_customize_preview() ) :
@@ -53,15 +53,14 @@
 
             <div class="footer-footnote">
                 <p>
-                    By continuing on our site, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policy. | 
-                    Mealsters © 2018. All rights reserved.
+                    By continuing on our site, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policy. Mealsters © 2018. All rights reserved.
                 </p>
             </div> <!-- footer-footnote -->
         
     </div> <!-- .footer-content -->
     
     
-    <div class="site-info">
+    <div class="site-info"> <!-- please do not delete this part - WP attribution -->
             <a href="<?php echo esc_url(__('https://wordpress.org/', 'mealsters')); ?>">
                 <?php
                 /* translators: %s: CMS name, i.e. WordPress. */

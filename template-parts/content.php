@@ -24,8 +24,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-                                    echo '<div class="entry-meta-restaurant smaller">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
-                                    echo '<div class="entry-meta-price smaller">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
+                                    echo '<div class="entry-meta-restaurant">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
+                                    echo '<div class="entry-meta-price">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
 				?>
 			</div>
 		<?php 
@@ -34,8 +34,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-                                    echo '<div class="entry-meta-date smaller">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
-                                    echo '<div class="entry-meta-place smaller">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
+                                    echo '<div class="entry-meta-date">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
+                                    echo '<div class="entry-meta-place">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
 				?>
 			</div>
 		<?php 

@@ -1,12 +1,12 @@
 a {
-	color: $color__violetred-dark;
+	color: $color__red-dark;
         text-decoration: none;
 
 	&:visited {
-		color: $color__violetred-dark;
+		color: $color__red-dark;
 	}
 	&:hover, &:focus, &:active {
-		color: $color__violetred-light;
+		color: $color__red-darker; 
 	}
 	&:focus {
 		outline: thin dotted;
@@ -27,7 +27,7 @@ a {
 
 
 .current-menu-item a {
-        color: $color__violetred-light; 
+        color: $color__red-darker; 
 }
 
 

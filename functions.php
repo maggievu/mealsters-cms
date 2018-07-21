@@ -135,7 +135,7 @@ add_action( 'widgets_init', 'mealsters_widgets_init' );
 function mealsters_scripts() {
 	wp_enqueue_style( 'mealsters-style', get_stylesheet_uri() );
         
-	wp_enqueue_style( 'mealsters-style_google-fonts', "https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i,700,700i|Open+Sans:300,300i,400,400i,700,700i,800,800i" );
+	wp_enqueue_style( 'mealsters-style_google-fonts', "https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i|Open+Sans:300,300i,400,400i,700,700i,800,800i" );
         
         wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
 

@@ -31,32 +31,10 @@
         overflow: hidden;
         padding-top: 2rem;
         padding-bottom: 2rem;
+        background: linear-gradient(to right, rgba(164,147,255,.8), rgba(246,87,98,.8)), url('/mealsters/wp-content/themes/mealsters/img/katherine-chase-493940-unsplash.jpg') center no-repeat;
+        background-size: cover;
         
         .step-image { max-width: 150px; }
-        
-        &::after {
-            content: " ";
-            background: linear-gradient(to right, $color__blue, $color__red);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: .8;
-            z-index: -100;
-        }
-        
-        .intro-step-background {
-            position: absolute;
-            width: 100vw;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            top: 0;
-            left: 0;
-            z-index: -101;
-            opacity: .5;
-        }
         
         .intro-step-main {
             max-width: $width-wrapper;
@@ -65,10 +43,14 @@
         
     }
     
+    .page-header {
+        margin: 1rem 2%;
+    }
+    
     .section-category, .intro-step-main {
         .post, .step {
-            padding: 1rem;
-            margin: 0 1%;
+            padding: 1rem 0;
+            margin: 1rem 2%;
             box-sizing: border-box;
         }
         
@@ -78,10 +60,14 @@
         }
         
         .post {            
-            box-shadow: 0 2px 6px 0 rgba(164,147,255, 0.8), 0 3px 10px 0 rgba(164,147,255, 0.05);
+            border-bottom: 2px solid $color__white-dark;
             
             .entry-title {
                 margin: 1rem 0;
+            }
+            
+            .entry-meta, .entry-footer {
+                color: $color__black-lighter;
             }
         }
         
@@ -92,7 +78,14 @@
                 flex: 1 0 98%;
             }   
             .post, .step {
-                flex: 1 0 23%;
+                flex: 1 0 21%;
+            }
+            
+            .post-thumbnail img {
+                height: 18vw;
+                min-height: 150px;
+                max-height: 300px;
+                object-fit: cover;
             }
         }
     }

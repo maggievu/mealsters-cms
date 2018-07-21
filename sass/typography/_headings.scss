@@ -4,11 +4,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-app-text h2, .intro-step-heading, .section-title {
-    @include font-size(2);
-    margin-bottom: 1rem;
+    @include font-size(3);
 }
 
 .widget-title, .section-title {
-    color: $color__violetred-dark;
-    text-align: center;
+    color: $color__red;
+    /*text-align: center;*/
 }
+
