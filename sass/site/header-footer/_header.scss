@@ -9,13 +9,25 @@
     max-height: 1200px; 
     /*overflow: hidden;*/
     display: grid;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 100px 30px auto;
     grid-template-columns: 1fr minmax(min-content,700px) minmax(min-content,500px) 1fr;
     justify-content: center;
     align-items: center;
     
     position: relative;
-    background: linear-gradient(to bottom right, rgba(255,168,0,.8), rgba(242,57,142,.8));
+    /*background: linear-gradient(to bottom right, rgba(255,168,0,.8), rgba(242,57,142,.8));*/
+    
+    &:before {
+        content: "";
+        background: linear-gradient(to bottom right, rgb(255,168,0), rgb(242,57,142));
+        opacity: .8;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -100;
+    }
     
     .header-background img {
         position: absolute;
@@ -33,19 +45,18 @@
     
     .site-branding { grid-column: 2/3; }
     
-    h1.site-title {
+    .site-title {
         margin: 0;
-        font-weight: 600;
+        
         img {
             width: 35px;
             height: auto;
-            vertical-align: middle;
+            vertical-align: sub;
         }
-        a { color: $color__white-lighter; }
     }
     
     a, p, span {
-        color: $color__white;
+        color: $color__white-lighter;
     }
     
     .main-navigation {
@@ -71,31 +82,6 @@
     .header-content {
         grid-column: 2/3;
         justify-self: start;
-        align-self: start;
-        
-        .big {
-            @include font-size(1.5); 
-        }
-        
-        .bigger { 
-            @include font-size(3); 
-            font-weight: 600;
-        }
-        
-        a {
-            @include font-size(.9);
-            display: inline-block;
-            text-transform: uppercase;
-            margin: 1rem 1rem 0 0;
-            padding: 1rem 1.5rem;
-            background: $color__blue-dark;
-            border-radius: 2rem;
-            transition: all .5s ease;
-            
-            &:hover {
-                background: $color__blue-darker;
-            }
-        }
     }
     
     .header-demo {
@@ -104,4 +90,8 @@
         position: absolute;
         bottom: -15rem;
     }
+}
+
+body:not(.home) .site-header {
+    min-height: 400px;
 }

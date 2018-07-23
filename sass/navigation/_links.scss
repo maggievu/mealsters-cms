@@ -41,12 +41,27 @@ a {
     }
 }
 
-.ios::before, .android::before {
+.header-content a {
+    @include font-size(.9);
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 1rem 1rem 0 0;
+    padding: 1rem 1.5rem;
+    background: $color__blue-dark;
+    border-radius: 2rem;
+    transition: all .5s ease;
+
+    &:hover {
+        background: $color__blue-darker;
+    }
+    
+    &::before {
         font-family: $font__fontawesome;
         font-style: normal;
         font-variant: normal;
         text-rendering: auto;
         -webit-font-smoothing: antialised;
+    }
 }
 
 .ios::before {

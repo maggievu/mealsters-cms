@@ -27,3 +27,9 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Margin-left and margin-right
+@mixin margin-left-right {
+    margin-left: 2%;
+    margin-right: 2%;
+}

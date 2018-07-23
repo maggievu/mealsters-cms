@@ -410,6 +410,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "asap", verdana, helvetica, arial, sans-serif;
 }
 
+.site-header .site-title {
+  font-family: "asap", verdana, helvetica, arial, sans-serif;
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.site-header .site-title a {
+  color: #fff;
+}
+
 .intro-app-text h2, .intro-step-heading, .section-title {
   font-size: 48px;
   font-size: 3rem;
@@ -418,6 +428,12 @@ h1, h2, h3, h4, h5, h6 {
 .widget-title, .section-title {
   color: #f65762;
   /*text-align: center;*/
+}
+
+.single .entry-title, .page .entry-title, .archive .page-title, .search .page-title {
+  font-size: 48px;
+  font-size: 3rem;
+  color: #fff;
 }
 
 p {
@@ -492,9 +508,31 @@ small, .small {
 }
 
 /*--------------------------------------------------------------
+## Typography for header content
+--------------------------------------------------------------*/
+.header-content p:first-of-type {
+  font-size: 48px;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.header-content p:last-of-type {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+## Typography for entry meta
+--------------------------------------------------------------*/
+.single .entry-meta {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
 ## Typography for footer footnote
 --------------------------------------------------------------*/
-.entry-meta, .entry-footer {
+body:not(.single).entry-meta, .entry-footer {
   font-size: 14.4px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -735,7 +773,21 @@ a:hover, a:active {
   color: #cfcfcf;
 }
 
-.ios::before, .android::before {
+.header-content a {
+  font-size: 14.4px;
+  font-size: 0.9rem;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 1rem 1rem 0 0;
+  padding: 1rem 1.5rem;
+  background: #907bff;
+  border-radius: 2rem;
+  transition: all .5s ease;
+}
+.header-content a:hover {
+  background: #7359ff;
+}
+.header-content a::before {
   font-family: "Font Awesome 5 Brands";
   font-style: normal;
   font-variant: normal;
@@ -1030,13 +1082,19 @@ ul {
   max-width: 1200px;
   margin: auto;
 }
-.home .site-main .page-header {
-  margin: 1rem 2%;
+@media screen and (min-width: 768px) {
+  .home .site-main .page-header {
+    margin: 1rem 2%;
+  }
 }
 .home .site-main .section-category .post, .home .site-main .section-category .step, .home .site-main .intro-step-main .post, .home .site-main .intro-step-main .step {
   padding: 1rem 0;
-  margin: 1rem 2%;
   box-sizing: border-box;
+}
+@media screen and (min-width: 768px) {
+  .home .site-main .section-category .post, .home .site-main .section-category .step, .home .site-main .intro-step-main .post, .home .site-main .intro-step-main .step {
+    margin: 1rem 2%;
+  }
 }
 .home .site-main .section-category .step, .home .site-main .intro-step-main .step {
   padding-left: 2rem;
@@ -1083,15 +1141,26 @@ ul {
   max-height: 1200px;
   /*overflow: hidden;*/
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 100px 30px auto;
   grid-template-columns: 1fr minmax(min-content, 700px) minmax(min-content, 500px) 1fr;
   justify-content: center;
   align-items: center;
   position: relative;
-  background: linear-gradient(to bottom right, rgba(255, 168, 0, 0.8), rgba(242, 57, 142, 0.8));
+  /*background: linear-gradient(to bottom right, rgba(255,168,0,.8), rgba(242,57,142,.8));*/
   /*    @support (object-fit: cover) {
           
       }*/
+}
+.site-header:before {
+  content: "";
+  background: linear-gradient(to bottom right, #ffa800, #f2398e);
+  opacity: .8;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
 }
 .site-header .header-background img {
   position: absolute;
@@ -1105,20 +1174,16 @@ ul {
 .site-header .site-branding {
   grid-column: 2/3;
 }
-.site-header h1.site-title {
+.site-header .site-title {
   margin: 0;
-  font-weight: 600;
 }
-.site-header h1.site-title img {
+.site-header .site-title img {
   width: 35px;
   height: auto;
-  vertical-align: middle;
-}
-.site-header h1.site-title a {
-  color: #fff;
+  vertical-align: sub;
 }
 .site-header a, .site-header p, .site-header span {
-  color: #e8e8e8;
+  color: #fff;
 }
 .site-header .main-navigation {
   /*justify-self: end;*/
@@ -1142,36 +1207,16 @@ ul {
 .site-header .header-content {
   grid-column: 2/3;
   justify-self: start;
-  align-self: start;
-}
-.site-header .header-content .big {
-  font-size: 24px;
-  font-size: 1.5rem;
-}
-.site-header .header-content .bigger {
-  font-size: 48px;
-  font-size: 3rem;
-  font-weight: 600;
-}
-.site-header .header-content a {
-  font-size: 14.4px;
-  font-size: 0.9rem;
-  display: inline-block;
-  text-transform: uppercase;
-  margin: 1rem 1rem 0 0;
-  padding: 1rem 1.5rem;
-  background: #907bff;
-  border-radius: 2rem;
-  transition: all .5s ease;
-}
-.site-header .header-content a:hover {
-  background: #7359ff;
 }
 .site-header .header-demo {
   grid-column: 3/4;
   justify-self: end;
   position: absolute;
   bottom: -15rem;
+}
+
+body:not(.home) .site-header {
+  min-height: 400px;
 }
 
 .site-footer {
@@ -1253,6 +1298,73 @@ ul {
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## SINGLE PAGE LAYOUT
+--------------------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+  .single .site-header:before {
+    opacity: 1;
+  }
+}
+
+.single .content-area, .page .content-area {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.archive .content-area, .search .content-area {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.single .entry-header {
+  grid-column: 1/-1;
+  align-self: start;
+  width: 1024px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .single .entry-header {
+    /*margin-left: 5%;*/
+  }
+}
+
+.page .page-header, .page .entry-header {
+  grid-column: 1/-1;
+  align-self: center;
+  width: 1024px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .page .page-header, .page .entry-header {
+    margin-left: 5%;
+  }
+}
+
+.archive .page-header, .search .page-header {
+  grid-column: 2/-2;
+  align-self: center;
+}
+
+.single .entry-title, .archive .page-title {
+  margin: 1rem 0;
+}
+.single .entry-title:after, .archive .page-title:after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  background: #fff;
+  display: block;
+}
+
+.single .post-thumbnail {
+  margin-top: -5rem;
+}
+.single .post-thumbnail img {
+  max-height: 100vh;
+  object-fit: cover;
 }
 
 /*--------------------------------------------------------------

@@ -27,7 +27,7 @@
 
 	<header id="masthead" class="site-header">
             
-                <?php if ( get_header_image() && is_front_page()) : ?>
+                <?php if ( get_header_image()) : ?>
                 <div class="header-background">
                     <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="Header's background">
                 </div>
@@ -39,7 +39,7 @@
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" style="width: 35px;" alt="logo"> <?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
 			$mealsters_description = get_bloginfo( 'description', 'display' );
@@ -61,15 +61,66 @@
 		</nav><!-- #site-navigation -->
                 <hr>
                 
-                <div class="header-content">
-                    <p class="bigger">Don't know what to eat?</p>
-                    <p class="big">You're at the right place. Keep swiping!</p>
-                    <a href="#" class="ios"> For iOS</a>
-                    <a href="#" class="android"> For Android</a>
-		</div><!-- .header-content -->
-                <div class="header-demo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="phone">
-                </div>
+                
+                <?php if ( is_front_page()) : ?>
+                    
+                        <div class="header-content">
+                            <p>Don't know what to eat?</p>
+                            <p>You're at the right place. Keep swiping!</p>
+                            <a href="#" class="ios"> For iOS</a>
+                            <a href="#" class="android"> For Android</a>
+                        </div><!-- .header-content -->
+                        <div class="header-demo">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="phone">
+                        </div>
+                                
+                <?php elseif ( is_singular() ) : ?>
+                        <header class="entry-header">
+        
+                            <?php the_title( '<h1 class="entry-title bigger">', '</h1>' ); ?>
+                            <?php if  ( has_category('Discoveries') ) :
+                                    ?>
+                                    <div class="entry-meta">
+                                            <?php
+                                                echo '<div class="entry-meta-restaurant">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
+                                                echo '<div class="entry-meta-price">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
+                                            ?>
+                                    </div>
+                            <?php 
+                            elseif ( has_category('Events') ) :
+                                    ?>
+                                    <div class="entry-meta">
+                                            <?php
+                                                echo '<div class="entry-meta-date">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
+                                                echo '<div class="entry-meta-place">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
+                                            ?>
+                                    </div>
+                            <?php 
+
+                            endif; ?>
+                        </header><!-- .entry-header -->
+                        
+                        <?php elseif ( is_archive() ) : ?>
+                            <header class="page-header">
+                                <?php
+                                the_archive_title( '<h1 class="page-title">', '</h1>' );
+                                the_archive_description( '<div class="archive-description">', '</div>' );
+                                ?>
+                            </header><!-- .page-header -->
+                        
+                        <?php elseif ( is_search() ) : ?>
+                            <header class="page-header">
+				<h1 class="page-title">
+					<?php
+					/* translators: %s: search query. */
+					printf( esc_html__( 'Search Results for: %s', 'mealsters' ), '<span>&#10077;' . get_search_query() . '&#10078;</span>' );
+					?>
+				</h1>
+                            </header><!-- .page-header -->
+
+                
+                <?php endif; ?>
+                
                 
 	</header><!-- #masthead -->
 

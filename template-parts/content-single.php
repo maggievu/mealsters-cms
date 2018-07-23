@@ -10,38 +10,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
             
-                <?php mealsters_post_thumbnail(); 
-        
-		if ( ! is_singular() ) :
-			the_title( '<h3 class="entry-title bigger"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-		endif;
-
-		if  ( has_category('Discoveries') ) :
-			?>
-			<div class="entry-meta">
-				<?php
-                                    echo '<div class="entry-meta-restaurant">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
-                                    echo '<div class="entry-meta-price">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
-				?>
-			</div>
-		<?php 
-                else:
-                    if ( has_category('Events') ) :
-			?>
-			<div class="entry-meta">
-				<?php
-                                    echo '<div class="entry-meta-date">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
-                                    echo '<div class="entry-meta-place">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
-				?>
-			</div>
-		<?php 
-                    
-                endif;
-                endif; ?>
-	</header><!-- .entry-header -->
-
+        <?php mealsters_post_thumbnail(); ?>
 
 	<div class="entry-content small">
 		<?php
