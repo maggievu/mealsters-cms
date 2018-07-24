@@ -27,8 +27,7 @@
 				?>
 			</div>
 		<?php 
-                else:
-                    if ( has_category('Events') ) :
+                elseif ( has_category('Events') ) :
 			?>
 			<div class="entry-meta">
 				<?php
@@ -38,7 +37,6 @@
 			</div>
 		<?php 
                     
-                endif;
                 endif; ?>
 	</header><!-- .entry-header -->
 

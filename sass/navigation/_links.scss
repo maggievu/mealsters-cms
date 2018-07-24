@@ -77,7 +77,7 @@ a {
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
 --------------------------------------------------------------*/
 .menu-footer a, .menu-social a {
-    color: $color__red;
+    color:#999;
     &:hover {
         color: $color__pink;
     }
@@ -94,7 +94,7 @@ a {
     
     a::before {
         font-family: $font__fontawesome;
-        @include font-size(1.5);
+        @include font-size(1);
     
         font-style: normal;
         font-variant: normal;

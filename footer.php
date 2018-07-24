@@ -16,16 +16,12 @@
     <!-- The footer will have 2 children .footer-content and .site-info -->
     
     <div class="footer-content">
-            <div class="footer-logo"><?php the_custom_logo(); ?></div> 
-            <div class="footer-logo-description">
-                    <?php $mealsters_description = get_bloginfo( 'description', 'display' );
-                    if ( $mealsters_description || is_customize_preview() ) :
-                    ?>
-                    <p class="site-description"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>
-                    <?php endif; ?>
-            </div>
-            <div class="footer-search"><?php get_search_form(); ?></div>
-
+        <div class="footer-search"><?php get_search_form(); ?></div>
+        <div class="footer-nav">
+            <div class="footer-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+       <img src="<?php echo get_template_directory_uri(); ?>/img/mealsters-horizontal-300x78.png" alt="Logo"/>
+    </a></div> 
+            <div class="footer-menu">
             <nav id="footer-navigation" class="footer-navigation">
                 <?php
                     wp_nav_menu(array(
@@ -50,13 +46,14 @@
                     ));
                 ?>
             </div> <!-- .social-navigation -->
-
+            </div>
+        </div>
             <div class="footer-footnote">
                 <p>
                     By continuing on our site, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policy. Mealsters © 2018. All rights reserved.
                 </p>
             </div> <!-- footer-footnote -->
-        
+           
     </div> <!-- .footer-content -->
     
     

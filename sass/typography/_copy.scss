@@ -83,24 +83,23 @@ small, .small {
 
 
 /*--------------------------------------------------------------
-## Typography for entry meta
+## Typography for entry meta, entry footer and recent post meta
 --------------------------------------------------------------*/
 
-.single .entry-meta {
+.entry-meta, .entry-footer, .recent-post-meta {
+    @include font-size(.9);
     font-weight: 500;
     text-transform: uppercase;
-    color: $color__white-lighter;
 }
 
 
 /*--------------------------------------------------------------
-## Typography for footer footnote
+## Typography for entry meta on single page (inside site-header)
 --------------------------------------------------------------*/
 
-body:not(.single).entry-meta, .entry-footer {
-    @include font-size(.9);
-    font-weight: 500;
-    text-transform: uppercase;
+.single .entry-meta {
+    @include font-size(1);
+    color: $color__white-lighter;
 }
 
 
@@ -108,10 +107,12 @@ body:not(.single).entry-meta, .entry-footer {
 ## Typography for menu and nav links
 --------------------------------------------------------------*/
 
-.menu-footer a, .menu-social a, .site-info {
-    @include font-size(.85);
+.menu-footer a,  .site-info {
+    @include font-size(.8);
 }
-
+.menu-social li{
+    @include font-size(.6);
+}
 .footer-footnote {
     @include font-size(.7);
     text-transform: uppercase;
@@ -119,7 +120,7 @@ body:not(.single).entry-meta, .entry-footer {
     margin-bottom: .5rem;
     p {
         margin: 0;
-        color: $color__white;
+        color: #ccc;
     }
 }
 
@@ -127,4 +128,13 @@ body:not(.single).entry-meta, .entry-footer {
     margin-left: .5rem;
     color: $color__white;
     @include font-size(.9);
+}
+.site-info {
+    color: #ccc;
+    a{
+        color:#ccc;
+    }
+    a:visited{
+        color:#bbb;
+    }
 }

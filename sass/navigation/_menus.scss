@@ -113,7 +113,27 @@ ul {
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
 --------------------------------------------------------------*/
 
+.footer-menu{
+    ul{
+        li{
+            box-sizing: border-box;
+            padding:20px 0 20px 40px  ;
+            flex-grow: 1;
+        }
+        margin:10px 0 20px 0;
+    }
+    #menu-social{
+        justify-content:flex-end;
+        margin:10px 0 0 0;
+        li{
+            box-sizing: border-box;
+            font-size:0.7rem;
+            padding:10px 0 10px 20px ;
+            flex-grow:0;
+        }
+    }
 
+}
 
 
 
