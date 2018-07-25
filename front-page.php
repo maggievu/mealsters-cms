@@ -56,9 +56,9 @@ get_header();
                     
                     echo '<section class="section-category discoveries">';
                             $discoveries_query = new WP_Query( array(
-                                    'category_name'  => 'discoveries', 
+                                    'category_name' => 'discoveries', 
                                     'posts_per_page' => '3',
-                                    'orderby'        => 'rand',
+                                    'orderby' => 'rand',
                                 ) );
 
                     if ( $discoveries_query->have_posts() ) : ?>
@@ -82,7 +82,7 @@ get_header();
                     
                     echo '<section class="section-category our-story">';
                             $story_query = new WP_Query( array(
-                                    'category_name'  => 'our-story', 
+                                    'category_name' => 'our-story', 
                                     'posts_per_page' => '4',
                                 ) );
 
@@ -106,9 +106,9 @@ get_header();
                     
                     echo '<section class="section-category events">';
                             $events_query = new WP_Query( array(
-                                    'category_name'  => 'events', 
+                                    'category_name' => 'events', 
                                     'posts_per_page' => '3',
-                                    'orderby'        => 'rand',
+                                    'orderby' => 'rand',
                                 ) );
 
                     if ( $events_query->have_posts() ) : ?>

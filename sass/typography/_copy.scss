@@ -83,23 +83,24 @@ small, .small {
 
 
 /*--------------------------------------------------------------
-## Typography for entry meta, entry footer and recent post meta
+## Typography for entry meta
 --------------------------------------------------------------*/
 
-.entry-meta, .entry-footer, .recent-post-meta {
-    @include font-size(.9);
+.single .entry-meta {
     font-weight: 500;
     text-transform: uppercase;
+    color: $color__white-lighter;
 }
 
 
 /*--------------------------------------------------------------
-## Typography for entry meta on single page (inside site-header)
+## Typography for footer footnote
 --------------------------------------------------------------*/
 
-.single .entry-meta {
-    @include font-size(1);
-    color: $color__white-lighter;
+body:not(.single).entry-meta, .entry-footer {
+    @include font-size(.9);
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 
