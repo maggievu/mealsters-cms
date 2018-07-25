@@ -4,13 +4,13 @@
 */
 
 .site-header {
-    height: 60vh; 
+    height: 80vh; 
     min-height: 500px; 
     max-height: 1200px; 
     /*overflow: hidden;*/
     display: grid;
     grid-template-rows: 100px 30px auto;
-    grid-template-columns: 1fr minmax(min-content,700px) minmax(min-content,500px) 1fr;
+    grid-template-columns: 1fr minmax(min-content,700px) minmax(min-content,300px) 1fr;
     justify-content: center;
     align-items: center;
     
@@ -80,6 +80,7 @@
     }
     
     .header-content {
+        
         grid-column: 2/3;
         justify-self: start;
     }
@@ -87,11 +88,31 @@
     .header-demo {
         grid-column: 3/4;
         justify-self: end;
-        position: absolute;
-        bottom: -15rem;
+        
+/*        @media screen and (max-width:1200px){
+            width:17vw !important;
+        }*/
+        min-width:300px;
+        img{
+            
+            width:95% !important;
+        }
+        
     }
 }
 
 body:not(.home) .site-header {
     min-height: 400px;
 }
+/*Editted by : Harman*/
+
+    .site-branding, #menu-header{
+        margin-top: 30px;
+    }
+    .search-submit{
+        display:none;
+    }
+
+
+
+/*************************/

@@ -107,10 +107,12 @@ small, .small {
 ## Typography for menu and nav links
 --------------------------------------------------------------*/
 
-.menu-footer a, .menu-social a, .site-info {
-    @include font-size(.85);
+.menu-footer a,  .site-info {
+    @include font-size(.8);
 }
-
+.menu-social li{
+    @include font-size(.6);
+}
 .footer-footnote {
     @include font-size(.7);
     text-transform: uppercase;
@@ -118,7 +120,7 @@ small, .small {
     margin-bottom: .5rem;
     p {
         margin: 0;
-        color: $color__white;
+        color: #ccc;
     }
 }
 
@@ -126,4 +128,13 @@ small, .small {
     margin-left: .5rem;
     color: $color__white;
     @include font-size(.9);
+}
+.site-info {
+    color: #ccc;
+    a{
+        color:#ccc;
+    }
+    a:visited{
+        color:#bbb;
+    }
 }
