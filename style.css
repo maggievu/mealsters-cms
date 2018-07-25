@@ -521,22 +521,22 @@ small, .small {
 }
 
 /*--------------------------------------------------------------
-## Typography for entry meta
+## Typography for entry meta, entry footer and recent post meta
 --------------------------------------------------------------*/
-.single .entry-meta {
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-/*--------------------------------------------------------------
-## Typography for footer footnote
---------------------------------------------------------------*/
-body:not(.single).entry-meta, .entry-footer {
+.entry-meta, .entry-footer, .recent-post-meta {
   font-size: 14.4px;
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+/*--------------------------------------------------------------
+## Typography for entry meta on single page (inside site-header)
+--------------------------------------------------------------*/
+.single .entry-meta {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -1385,6 +1385,23 @@ body:not(.home) .site-header {
     opacity: 1;
   }
 }
+.single .post-thumbnail {
+  margin-top: -5rem;
+}
+.single .post-thumbnail img {
+  max-height: 100vh;
+  object-fit: cover;
+}
+.single .entry-header {
+  grid-column: 1/-1;
+  align-self: start;
+  width: 1024px;
+  margin: 0 auto;
+}
+.single .widget-area {
+  max-width: 1024px;
+  margin: 2rem auto;
+}
 
 .single .content-area, .page .content-area {
   max-width: 1024px;
@@ -1394,18 +1411,6 @@ body:not(.home) .site-header {
 .archive .content-area, .search .content-area {
   max-width: 1200px;
   margin: 2rem auto;
-}
-
-.single .entry-header {
-  grid-column: 1/-1;
-  align-self: start;
-  width: 1024px;
-  margin: 0 auto;
-}
-@media screen and (max-width: 1024px) {
-  .single .entry-header {
-    /*margin-left: 5%;*/
-  }
 }
 
 .page .page-header, .page .entry-header {
@@ -1434,14 +1439,6 @@ body:not(.home) .site-header {
   height: 3px;
   background: #fff;
   display: block;
-}
-
-.single .post-thumbnail {
-  margin-top: -5rem;
-}
-.single .post-thumbnail img {
-  max-height: 100vh;
-  object-fit: cover;
 }
 
 /*--------------------------------------------------------------
