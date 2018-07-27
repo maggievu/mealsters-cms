@@ -2,9 +2,6 @@ a {
 	color: $color__red-dark;
         text-decoration: none;
 
-	&:visited {
-		color: $color__red-dark;
-	}
 	&:hover, &:focus, &:active {
 		color: $color__red-darker; 
 	}
@@ -24,6 +21,15 @@ a {
     }
 }
 
+.our-story {
+    a, .entry-title a {
+        color: $color__white-lighter;
+        &:hover {
+            color: $color__white-dark;
+        }
+    }
+}
+
 
 
 .current-menu-item a {
@@ -36,8 +42,7 @@ a {
 --------------------------------------------------------------*/
 .main-navigation {
     .current-menu-item a, a:hover {
-        box-shadow: 0 -3px inset $color__white-dark;
-        color: $color__white-dark;
+        box-shadow: 0 -3px inset $color__white-lighter;
     }
 }
 
@@ -74,12 +79,12 @@ a {
 
 
 /*--------------------------------------------------------------
-## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
+## Menu Footer
 --------------------------------------------------------------*/
-.menu-footer a, .menu-social a {
-    color:#999;
+.menu-footer a {
+    color: $color__black-light;
     &:hover {
-        color: $color__pink;
+        color: $color__red-darker;
     }
 }
 
@@ -87,6 +92,12 @@ a {
 ## Menu Social (div '.social-navigation' > ul '.menu-social')
 --------------------------------------------------------------*/
 .menu-social {
+    a {
+        color: $color__black-light;
+        &:hover {
+            color: $color__red-darker;
+        }
+    }
     
     a span {
         display: block;
@@ -94,7 +105,7 @@ a {
     
     a::before {
         font-family: $font__fontawesome;
-        @include font-size(1);
+        @include font-size(1.5);
     
         font-style: normal;
         font-variant: normal;
@@ -104,14 +115,10 @@ a {
         
     a[href*='facebook']:before {
             content: '\f082';
-            
-            &:hover {
-                color: $color__link-hover;
-            }
     }
     
     a[href*='twitter']:before {
-            content: '\f081';
+            content: '\f099';
     }
     
     a[href*='instagram']:before {
@@ -119,11 +126,11 @@ a {
     }
     
     a[href*='pinterest']:before {
-            content: '\f0d3';
+            content: '\f0d2';
     }
     
     a[href*='youtube']:before {
-            content: '\f431';
+            content: '\f167';
     }
     
 }

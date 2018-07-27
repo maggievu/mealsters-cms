@@ -1,8 +1,99 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
 	}
 }
+
+
+.widget_yarpp_widget {
+    max-width: $width-single-wrapper;
+    margin: 2rem auto;
+    
+    .yarpp-thumbnails-horizontal {
+        .yarpp-thumbnail {
+            border: 0;
+            @include margin-y(1rem);
+            padding-bottom: 1rem;
+            display: block;
+            width: auto;
+            height: auto;
+            
+            &>img {
+                margin: 0;
+            }
+            
+            @media screen and (max-width: $query__tablet) {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: center;
+                
+                &>img {
+                    width: 200px;
+                    height: auto;
+                }
+            }
+        }
+        
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            
+            .yarpp-thumbnail {
+                flex: 1 0 46%;
+                @include margin-x(2%);
+                border-bottom: 2px solid $color__white-dark;
+            
+                &>img {
+                    height: 30vw;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        
+        @media screen and (min-width: $query__desktop-small) {
+            .yarpp-thumbnail {
+                flex-basis: 29.333%;
+                
+                &>img {
+                    height: 15vw;
+                }
+            }
+        }
+        
+        .yarpp-thumbnail-title {
+            margin: 0;
+            @include margin-y(.5rem);
+            overflow: visible;
+            width: auto;
+        }
+    }
+}
+
+.search-form {
+    .search-field {
+        border-radius: 1rem;
+        padding-left: 1rem;
+        padding-right: 2rem;
+        width: 50%;
+        max-width: 300px;
+    }
+
+    .search-submit {
+        display: inline-block;
+        color: $color__red;
+        margin-left: -3rem;
+    }    
+}
+
+.widget_search {
+    @include padding-y(2rem);
+    background-color: $color__red;
+    text-align: center;
+}
+
+
+

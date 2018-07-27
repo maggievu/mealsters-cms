@@ -140,9 +140,9 @@ function mealsters_scripts() {
         
         wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
 
-	//wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', array(), '20151215', true );
-	
         wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	
+//	wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/aria.js', array(), '20151215', true );
 	
         //script to make blinking arrow appear after an element
         wp_enqueue_script( 'mealsters-blinky', get_template_directory_uri() . '/js/blinky.js', array('jquery'), '20151215', true );
@@ -184,4 +184,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

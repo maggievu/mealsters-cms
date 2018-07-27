@@ -29,17 +29,22 @@
             
                 <?php if ( get_header_image()) : ?>
                 <div class="header-background">
-                    <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="Header's background">
+                    <?php if ( is_single() ) :
+                        the_post_thumbnail();
+                        
+                    else : ?>
+                        <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="Header's background">
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
 		<div class="site-branding">
 			<?php if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" style="width: 35px;" alt="logo"> <?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="logo"> <?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" style="width: 35px;" alt="logo"> <?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="logo"> <?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
 			$mealsters_description = get_bloginfo( 'description', 'display' );
@@ -48,8 +53,10 @@
 				<!--<p class="site-description smallest"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>-->
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
+                
 		<nav id="site-navigation" class="main-navigation">
+                    <button id="button-menu-header" class="menu-toggle" aria-controls="menu-header" aria-haspopup="true"><span class="fas fa-bars"></span></button>
+
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-header',
@@ -100,28 +107,32 @@
                             endif; ?>
                         </header><!-- .entry-header -->
                         
-                        <?php elseif ( is_archive() ) : ?>
-                            <header class="page-header">
+                <?php elseif ( is_archive() ) : ?>
+                    <header class="page-header">
+                        <?php
+                        the_archive_title( '<h1 class="page-title">', '</h1>' );
+                        the_archive_description( '<div class="archive-description">', '</div>' );
+                        ?>
+                    </header><!-- .page-header -->
+
+                <?php elseif ( is_search() ) : ?>
+                    <header class="page-header">
+                        <h1 class="page-title">
                                 <?php
-                                the_archive_title( '<h1 class="page-title">', '</h1>' );
-                                the_archive_description( '<div class="archive-description">', '</div>' );
+                                /* translators: %s: search query. */
+                                printf( esc_html__( 'Search Results for: %s', 'mealsters' ), '<span>&#10077;' . get_search_query() . '&#10078;</span>' );
                                 ?>
-                            </header><!-- .page-header -->
-                        
-                        <?php elseif ( is_search() ) : ?>
-                            <header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'mealsters' ), '<span>&#10077;' . get_search_query() . '&#10078;</span>' );
-					?>
-				</h1>
-                            </header><!-- .page-header -->
+                        </h1>
+                    </header><!-- .page-header -->
 
-                
+                <?php elseif (is_404() ) : ?>
+                    <header class="page-header">
+                        <h1 class="page-title"><?php esc_html_e( 'Oops! That page cannot be found.', 'mealsters' ); ?></h1>
+                    </header><!-- .page-header -->
+
                 <?php endif; ?>
-                
-                
-	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+
+        </header><!-- #masthead -->
+
+<div id="content" class="site-content">

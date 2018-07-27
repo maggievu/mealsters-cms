@@ -28,8 +28,24 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
-// Margin-left and margin-right
-@mixin margin-left-right {
-    margin-left: 2%;
-    margin-right: 2%;
+// Margin
+@mixin margin-x($value) {
+    margin-left: $value;
+    margin-right: $value;
+}
+
+@mixin margin-y($value) {
+    margin-top: $value;
+    margin-bottom: $value;
+}
+
+// Padding
+@mixin padding-x($value) {
+    padding-left: $value;
+    padding-right: $value;
+}
+
+@mixin padding-y($value) {
+    padding-top: $value;
+    padding-bottom: $value;
 }

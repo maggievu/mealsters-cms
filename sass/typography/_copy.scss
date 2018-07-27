@@ -1,5 +1,5 @@
 p {
-	margin-bottom: .5rem;
+	margin-bottom: 1rem;
 }
 
 dfn, cite, em, i {
@@ -93,6 +93,10 @@ small, .small {
 }
 
 
+.home .site-main .section-category.our-story .entry-footer {
+    color: $color__white-dark;
+}
+
 /*--------------------------------------------------------------
 ## Typography for entry meta on single page (inside site-header)
 --------------------------------------------------------------*/
@@ -107,34 +111,50 @@ small, .small {
 ## Typography for menu and nav links
 --------------------------------------------------------------*/
 
-.menu-footer a,  .site-info {
+.site-info {
     @include font-size(.8);
 }
-.menu-social li{
-    @include font-size(.6);
+
+.menu-footer a {
+    @include font-size(1);
 }
-.footer-footnote {
-    @include font-size(.7);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: .5rem;
-    p {
-        margin: 0;
-        color: #ccc;
+
+.menu-social a {
+    @include font-size(2);
+    
+    @media screen and (min-width: $query__tablet) {
+        @include font-size(1);
     }
 }
 
-.footer-logo-description {
-    margin-left: .5rem;
-    color: $color__white;
-    @include font-size(.9);
+.footer-footnote {
+    @include font-size(.8);
+    text-transform: uppercase;
+    text-align: center;
+    /*margin-bottom: .5rem;*/
+    
+    p {
+        margin: 0;
+        color: $color__black-light;
+    }
 }
+
 .site-info {
-    color: #ccc;
-    a{
-        color:#ccc;
+    color: $color__black-light;
+    a {
+        color: $color__black-light;
     }
-    a:visited{
-        color:#bbb;
-    }
+}
+
+
+/*--------------------------------------------------------------
+## Typography for widgets
+--------------------------------------------------------------*/
+
+.search-form .search-submit {
+    @include font-size(1);
+}
+
+.widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail-title {
+    @include font-size(1);
 }

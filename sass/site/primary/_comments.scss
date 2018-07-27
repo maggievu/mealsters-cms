@@ -1,6 +1,43 @@
 .comment-content a {
-	word-wrap: break-word;
+    word-wrap: break-word;
 }
+
 .bypostauthor {
-	display: block;
+    display: block;
+}
+
+.comments-area {
+    label:not([for="wp-comment-cookies-consent"]) {
+        display: inline-block;
+        width: 100%;
+        
+        @media screen and (min-width: $query__tablet) {
+            width: 10%;
+        }
+    }
+
+    [for="wp-comment-cookies-consent"], [for="comment"] {
+        vertical-align: top;
+        
+        &:before {
+            content: " ";
+        }
+    }
+    
+    input:not([type="submit"]):not([type="checkbox"]), textarea {
+        width: 100%;
+        
+        @media screen and (min-width: $query__tablet) {
+            width: 60%;
+        }
+    }
+    
+    [type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+    
+    [type="submit"] {
+        background: transparent;
+    }
 }

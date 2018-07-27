@@ -3,7 +3,7 @@
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 }
 
 .updated:not(.published) {
@@ -13,12 +13,12 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1rem 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 1rem;
 }
 
 
@@ -26,14 +26,17 @@
 ## SINGLE PAGE LAYOUT
 --------------------------------------------------------------*/
 .single {
-    .site-header:before {
-        @media screen and (max-width: $query__desktop-small) {
-            opacity: 1;
-        }
+    .header-background img {
+        object-position: 50% 95%;
     }
 
     .post-thumbnail {
-        margin-top: -5rem;
+        margin-top: -4rem;
+            
+        @media screen and (min-width: $query__tablet) {
+            margin-top: -6rem;
+        }
+        
         img {
             max-height: 100vh;
             object-fit: cover;
@@ -43,24 +46,16 @@
     .entry-header {
         grid-column: 1/-1;
         align-self: start;
-        width: $query__desktop-small;
-        margin: 0 auto;
+        width: $width-single-wrapper;
+        @include margin-x(auto);
     }
     
-    .widget-area {
-        max-width: $query__desktop-small;
-        margin: 2rem auto;
-        
-        .recent-post-meta {
-            
-        }
-    }
 }
 
-.single, .page {
+.single, .page, .error404 {
     .content-area {
-        max-width: $query__desktop-small;
-        margin: 0 auto;
+        max-width: $width-single-wrapper;
+        @include margin-x(auto);
     } 
 }
 
@@ -72,22 +67,15 @@
 }
 
 .page {
-    .page-header, .entry-header {
+    .entry-header {
         grid-column: 1/-1;
         align-self: center;
-        width: $query__desktop-small;
-        margin: 0 auto;
+        width: $width-single-wrapper;
+        @include margin-x(auto);
 
         @media screen and (max-width: $query__desktop-small) {
             margin-left: 5%;
         }
-    }
-}
-
-.archive, .search {
-    .page-header {
-            grid-column: 2/-2;
-            align-self: center;
     }
 }
 
@@ -101,3 +89,63 @@
             display: block;
         }
 }
+
+
+/*--------------------------------------------------------------
+## ARCHIVE / SEARCH PAGE LAYOUT
+--------------------------------------------------------------*/
+
+.archive, .search {
+    .page-header {
+        grid-column: 2/-2;
+        align-self: center;
+    }
+    
+    .entry-title {
+        @include margin-y(1rem);
+    }
+    
+    .site-main {
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            
+            .navigation {
+                flex: 1 0 98%;
+            }   
+            
+            .post {
+                margin: 1rem 2%;
+                flex: 1 0 46%;
+                border-bottom: 2px solid $color__white-dark;
+                @include padding-y(1rem);
+                
+                &:last-of-type {
+                    flex-grow: 0;
+                }
+            }
+
+            .post-thumbnail img {
+                height: 30vw;
+                min-height: 150px;
+                max-height: 300px;
+                object-fit: cover;
+            }
+        }
+        
+        @media screen and (min-width: $query__desktop-small) {
+            .post {
+                flex-basis: 29.333%;
+            }
+            
+            .post-thumbnail img {
+                height: 18vw;
+            }
+        }
+    }
+}
+        
+
+/*--------------------------------------------------------------
+## PAGE LAYOUT
+--------------------------------------------------------------*/

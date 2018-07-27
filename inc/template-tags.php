@@ -74,7 +74,7 @@ if ( ! function_exists( 'mealsters_entry_footer' ) ) :
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '<div class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -89,7 +89,7 @@ if ( ! function_exists( 'mealsters_entry_footer' ) ) :
 					get_the_title()
 				)
 			);
-			echo '</span>';
+			echo '</div>';
 		}
 
 		edit_post_link(
@@ -105,8 +105,8 @@ if ( ! function_exists( 'mealsters_entry_footer' ) ) :
 				),
 				get_the_title()
 			),
-			'<span class="edit-link">',
-			'</span>'
+			'<div class="edit-link">',
+			'</div>'
 		);
 	}
 endif;

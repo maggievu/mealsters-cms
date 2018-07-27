@@ -1,88 +1,62 @@
 .site-footer {
+    max-width: $width-wrapper;
+    @include margin-x(auto);
+    
+    .footer-logo {
+
+        /* Make sure logo link wraps around logo image. */
+        .custom-logo-link {
+            display: inline-block;
+        }
+
+        img {
+            width: 50px;
+            height: auto;
+            vertical-align: bottom;
+        }
+    }
+    
+    .footer-footnote { margin-top: 2rem; }
+    
+    @media screen and (max-width: $query__tablet) {
+        text-align: center;
+
+        .footer-nav-container {
+            margin-top: 2rem;
+        }
+    }
+        
+    @media screen and (min-width: $query__tablet) {
+        .footer-content {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: space-between;
+
+            .footer-logo {
+                flex-grow: 1;
+            }
+
+            .footer-footnote {
+                flex-basis: 100%;
+            }
+        }
+    }
+    
+    .footer-content {
+
+        
+        .footer-nav-container {
+            
+        }
+        
+        .footer-footnote {
+            
+        }
+    }
     
     .site-info {
-        background-color: white;
         text-align: center;
-        padding: .3rem 0;
-        margin-bottom: 2rem;
+        @include padding-y(.3rem);
     }
 }
-
-.footer-logo {
-    /*flex-grow: 1;*/
-}
-
-.footer-logo-description {
-    /*flex-grow: 1;*/
-}
-
-.footer-search {
-    padding: 30px 0 30px 0;
-    background-color: $color__red;
-    flex-grow: 1;
-    text-align: center;
-    flex-basis: 100%;
-}
-
-.footer-navigation {
-    flex-basis: 60%;
-    height:30px;
-}
-
-.social-navigation {
-    flex-basis: 20%;
-    text-align: right;
-}
-
-.menu-footer, .menu-social {
-    display: flex;
-    flex-flow: row nowrap;
-    li {
-        
-    }
-}
-
-.footer-footnote {
-    flex-basis: 100%;
-    
-}
-
-/*Edit:Harman*/
-
-.search-field{
-    border-radius:15px !important;
-    padding-left:1% !important;
-}
-.search-field::placeholder{
-    font-size:0.8rem;   
-}
-.search-field:focus{
-    outline:none;
-}
-.footer-nav{
-    max-width: $width-wrapper;
-    margin: 2rem auto;
-    align-content: center;
-    display:flex;
-    flex-direction: row;
-    .footer-navigation{
-        align-self: center;
-    }
-}
-.footer-logo{
-    width:80%;
-}
-.footer-logo img{
-    margin:1rem 2%;
-    width:200px !important;
-    height:auto;
-    
-}
-.footer-content {
-    align-items: center; //align items according to the imaginary baseline
-    background-color: white;
-}
-.footer-menu{
-    margin:1rem 2%;
-}
-/*************/

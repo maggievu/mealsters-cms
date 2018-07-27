@@ -16,42 +16,41 @@
     <!-- The footer will have 2 children .footer-content and .site-info -->
     
     <div class="footer-content">
-        <div class="footer-search"><?php get_search_form(); ?></div>
-        <div class="footer-nav">
-            <div class="footer-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-       <img src="<?php echo get_template_directory_uri(); ?>/img/mealsters-horizontal-300x78.png" alt="Logo"/>
-    </a></div> 
-            <div class="footer-menu">
-            <nav id="footer-navigation" class="footer-navigation">
-                <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'menu-footer',
-                        'menu_id'        => 'menu-footer',
-                        'menu_class'     => 'menu-footer menu menu-nav',
-                        'container'      => '',
-                    ));
-                ?>
-            </nav> <!-- .footer-navigation -->
+        
+            <div class="footer-logo">
+                <?php the_custom_logo(); ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' );?> </a>
+            </div> 
+        
+            <div class="footer-nav-container">
+                <nav id="footer-navigation" class="footer-navigation">
+                    <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-footer',
+                            'menu_id'        => 'menu-footer',
+                            'menu_class'     => 'menu-footer menu menu-nav',
+                            'container'      => '',
+                        ));
+                    ?>
+                </nav> <!-- .footer-navigation -->
 
 
-            <div id="social-navigation" class="social-navigation">
-                <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'menu-social',
-                        'menu_id'        => 'menu-social',
-                        'menu_class'     => 'menu-social menu',
-                        'link_before'    => '<span class="screen-reader-text">',
-                        'link_after'     => '</span>',
-                        'container'      => '',
-                    ));
-                ?>
-            </div> <!-- .social-navigation -->
-            </div>
-        </div>
+                <div id="social-navigation" class="social-navigation">
+                    <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-social',
+                            'menu_id'        => 'menu-social',
+                            'menu_class'     => 'menu-social menu',
+                            'link_before'    => '<span class="screen-reader-text">',
+                            'link_after'     => '</span>',
+                            'container'      => '',
+                        ));
+                    ?>
+                </div> <!-- .social-navigation -->
+            </div><!-- .footer-nav-container -->
+            
             <div class="footer-footnote">
-                <p>
-                    By continuing on our site, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policy. Mealsters © 2018. All rights reserved.
-                </p>
+                <p>Mealsters © 2018. All rights reserved.</p>
             </div> <!-- footer-footnote -->
            
     </div> <!-- .footer-content -->

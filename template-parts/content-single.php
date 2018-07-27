@@ -13,7 +13,7 @@
             
         <?php mealsters_post_thumbnail(); ?>
 
-	<div class="entry-content small">
+	<div class="entry-content">
 		<?php
                 if ( is_singular() ) :
                     the_content( sprintf(

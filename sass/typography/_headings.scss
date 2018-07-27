@@ -3,11 +3,18 @@ h1, h2, h3, h4, h5, h6 {
         font-family: $font__heading;
 }
 
-.site-header .site-title {
+.site-header .site-title, .site-footer .footer-logo {
     font-family: $font__heading;
     @include font-size(2);
     font-weight: 600;
-    a { color: $color__white-lighter; }
+}
+
+.site-header .site-title a { 
+    color: $color__white-lighter; 
+}
+
+.site-footer .footer-logo a {
+    color: $color__black; 
 }
 
 .intro-app-text h2, .intro-step-heading, .section-title {
@@ -20,7 +27,12 @@ h1, h2, h3, h4, h5, h6 {
 }   
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title {
-        @include font-size(3);
-        color: $color__white-lighter;
-    }
+    @include font-size(3);
+    color: $color__white-lighter;
+}
+
+.widget_yarpp_widget h3 {
+    color: $color__red;
+    @include font-size(1.5);
+}
 

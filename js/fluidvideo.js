@@ -1,8 +1,3 @@
-/* 
-    Created on : Jun 24, 2018, 12:24:13 PM
-    Author     : Maggie
-*/
-
 // Find all YouTube videos
 var theVideo = jQuery('iframe[src*="youtube"]');
 
