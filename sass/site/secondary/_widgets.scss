@@ -12,6 +12,10 @@
     max-width: $width-single-wrapper;
     margin: 2rem auto;
     
+    .page & {
+        display: none;
+    }
+    
     .yarpp-thumbnails-horizontal {
         .yarpp-thumbnail {
             border: 0;
@@ -25,7 +29,7 @@
                 margin: 0;
             }
             
-            @media screen and (max-width: $query__tablet) {
+            @media screen and (max-width: $query__phone-large) {
                 display: flex;
                 flex-flow: row wrap;
                 align-items: center;
@@ -34,10 +38,14 @@
                     width: 200px;
                     height: auto;
                 }
+                
+                .yarpp-thumbnail-title {
+                    margin-left: 1rem;
+                }
             }
         }
         
-        @media screen and (min-width: $query__tablet) {
+        @media screen and (min-width: $query__phone-large) {
             display: flex;
             flex-flow: row wrap;
             
@@ -50,6 +58,11 @@
                     height: 30vw;
                     width: 100%;
                     object-fit: cover;
+                }
+                
+                .yarpp-thumbnail-title {
+                    text-align: center;
+                    display: block;
                 }
             }
         }

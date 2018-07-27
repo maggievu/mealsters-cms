@@ -14,10 +14,12 @@ a {
         
 }
 
-.entry-title a {
-    color: $color__black;
-    &:hover {
-        color: $color__black-light;
+.entry-title, .widget {
+    a {
+        color: $color__black;
+        &:hover {
+            color: $color__black-light;
+        }
     }
 }
 
@@ -133,4 +135,33 @@ a {
             content: '\f167';
     }
     
+}
+
+
+/*--------------------------------------------------------------
+## Post Navigation
+--------------------------------------------------------------*/
+
+.nav-links a {
+    &:before, &:after {
+        @include font-size(1.5);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webit-font-smoothing: antialised;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.nav-previous a:before {
+    content: "\f0a8";
+    padding-right: .5rem;
+}
+
+.nav-next a:after {
+    content: "\f0a9";
+    padding-left: .5rem;
 }

@@ -147,5 +147,14 @@
         
 
 /*--------------------------------------------------------------
-## PAGE LAYOUT
+## 404 LAYOUT
 --------------------------------------------------------------*/
+
+.error404 {
+    .page-header {
+        grid-column: 1/-1;
+        align-self: center;
+        width: $width-single-wrapper;
+        @include margin-x(auto);
+    }
+}

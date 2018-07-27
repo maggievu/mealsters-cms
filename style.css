@@ -430,12 +430,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
 }
 
-.widget-title, .section-title {
+.widget-title, .widgettitle, .section-title {
   color: #f65762;
   /*text-align: center;*/
 }
 
-.single .entry-title, .page .entry-title, .archive .page-title, .search .page-title {
+.single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
   font-size: 48px;
   font-size: 3rem;
   color: #fff;
@@ -803,10 +803,10 @@ a:hover, a:active {
   outline: 0;
 }
 
-.entry-title a {
+.entry-title a, .widget a {
   color: #141414;
 }
-.entry-title a:hover {
+.entry-title a:hover, .widget a:hover {
   color: #414141;
 }
 
@@ -903,6 +903,32 @@ a:hover, a:active {
 }
 .menu-social a[href*='youtube']:before {
   content: '\f167';
+}
+
+/*--------------------------------------------------------------
+## Post Navigation
+--------------------------------------------------------------*/
+.nav-links a:before, .nav-links a:after {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webit-font-smoothing: antialised;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-previous a:before {
+  content: "\f0a8";
+  padding-right: .5rem;
+}
+
+.nav-next a:after {
+  content: "\f0a9";
+  padding-left: .5rem;
 }
 
 /*--------------------------------------------------------------
@@ -1571,8 +1597,16 @@ body:not(.home) .site-header {
 }
 
 /*--------------------------------------------------------------
-## PAGE LAYOUT
+## 404 LAYOUT
 --------------------------------------------------------------*/
+.error404 .page-header {
+  grid-column: 1/-1;
+  align-self: center;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -1630,6 +1664,9 @@ body:not(.home) .site-header {
   max-width: 900px;
   margin: 2rem auto;
 }
+.page .widget_yarpp_widget {
+  display: none;
+}
 .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail {
   border: 0;
   margin-top: 1rem;
@@ -1642,7 +1679,7 @@ body:not(.home) .site-header {
 .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail > img {
   margin: 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail {
     display: flex;
     flex-flow: row wrap;
@@ -1652,8 +1689,11 @@ body:not(.home) .site-header {
     width: 200px;
     height: auto;
   }
+  .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail .yarpp-thumbnail-title {
+    margin-left: 1rem;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 414px) {
   .widget_yarpp_widget .yarpp-thumbnails-horizontal {
     display: flex;
     flex-flow: row wrap;
@@ -1668,6 +1708,10 @@ body:not(.home) .site-header {
     height: 30vw;
     width: 100%;
     object-fit: cover;
+  }
+  .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail .yarpp-thumbnail-title {
+    text-align: center;
+    display: block;
   }
 }
 @media screen and (min-width: 1024px) {
