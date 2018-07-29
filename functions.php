@@ -140,7 +140,7 @@ function mealsters_scripts() {
         
         wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
 
-        wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+        wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 	
 //	wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/aria.js', array(), '20151215', true );
 	
@@ -194,3 +194,18 @@ function custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
+/**
+ * Search only posts not pages
+ */
+
+if (!is_admin()) {
+    function wpb_search_filter($query) {
+        if ($query->is_search) {
+        $query->set('post_type', 'post');
+        }
+        return $query;
+        }
+    add_filter('pre_get_posts','wpb_search_filter');
+}

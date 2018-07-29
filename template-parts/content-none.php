@@ -10,10 +10,6 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'mealsters' ); ?></h1>
-	</header><!-- .page-header -->
-
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
@@ -37,6 +33,28 @@
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'mealsters' ); ?></p>
 			<?php
 			get_search_form();
+
+                        the_widget( 'WP_Widget_Recent_Posts' );
+                        ?>
+
+                        <div class="widget widget_categories">
+                                <h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'mealsters' ); ?></h2>
+                                <ul>
+                                        <?php
+                                        wp_list_categories( array(
+                                                'orderby'    => 'count',
+                                                'order'      => 'DESC',
+                                                'show_count' => 1,
+                                                'title_li'   => '',
+                                                'number'     => 10,
+                                        ) );
+                                        ?>
+                                </ul>
+                        </div><!-- .widget -->
+
+                        <?php
+
+                        the_widget( 'WP_Widget_Tag_Cloud' );
 
 		else :
 			?>

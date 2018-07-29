@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .widget-title, .widgettitle, .section-title {
     color: $color__red;
-    /*text-align: center;*/
+    font-weight: 600;
 }
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {

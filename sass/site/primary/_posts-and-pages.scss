@@ -51,16 +51,19 @@
         @include margin-x(auto);
     }
     
+    .entry-content ul {
+        margin-bottom: 1rem;
+    }
 }
 
-.single, .page, .error404 {
+.single, .page {
     .content-area {
         max-width: $width-single-wrapper;
         @include margin-x(auto);
     } 
 }
 
-.archive, .search {
+.archive, .search, .error404 {
     .content-area {
         max-width: $width-wrapper;
         margin: 2rem auto;
@@ -118,13 +121,9 @@
             
             .post {
                 margin: 1rem 2%;
-                flex: 1 0 46%;
+                flex-basis: 46%;
                 border-bottom: 2px solid $color__white-dark;
                 @include padding-y(1rem);
-                
-                &:last-of-type {
-                    flex-grow: 0;
-                }
             }
 
             .post-thumbnail img {
@@ -149,14 +148,39 @@
         
 
 /*--------------------------------------------------------------
-## 404 LAYOUT
+## 404 & SEARCH NONE LAYOUT
 --------------------------------------------------------------*/
 
 .error404 {
     .page-header {
-        grid-column: 1/-1;
+        grid-column: 2/-2;
         align-self: center;
-        width: $width-single-wrapper;
+        width: $width-wrapper;
         @include margin-x(auto);
+    }
+}
+    
+.error404, .search-no-results {
+    .page-content {
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            
+            p, .search-form {
+                flex-basis: 100%;
+            }
+            
+            p {
+                margin-bottom: 0;
+            }
+            
+            .search-form {
+                @include margin-y(1rem);
+            }
+            
+            .widget {
+                flex: 1 0 50%;
+            }
+        }
     }
 }

@@ -440,7 +440,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .widget-title, .widgettitle, .section-title {
   color: #f65762;
-  /*text-align: center;*/
+  font-weight: 600;
 }
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
@@ -1000,21 +1000,17 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
   margin: 0 0 1.5em;
   overflow: hidden;
 }
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous {
   float: left;
   width: 50%;
 }
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next {
   float: right;
   text-align: right;
   width: 50%;
@@ -1596,14 +1592,17 @@ body:not(.home) .site-header {
   margin-left: auto;
   margin-right: auto;
 }
+.single .entry-content ul {
+  margin-bottom: 1rem;
+}
 
-.single .content-area, .page .content-area, .error404 .content-area {
+.single .content-area, .page .content-area {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.archive .content-area, .search .content-area {
+.archive .content-area, .search .content-area, .error404 .content-area {
   max-width: 1200px;
   margin: 2rem auto;
 }
@@ -1654,13 +1653,10 @@ body:not(.home) .site-header {
   }
   .archive .site-main .post, .search .site-main .post {
     margin: 1rem 2%;
-    flex: 1 0 46%;
+    flex-basis: 46%;
     border-bottom: 2px solid #cfcfcf;
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-  .archive .site-main .post:last-of-type, .search .site-main .post:last-of-type {
-    flex-grow: 0;
   }
   .archive .site-main .post-thumbnail img, .search .site-main .post-thumbnail img {
     height: 30vw;
@@ -1679,14 +1675,34 @@ body:not(.home) .site-header {
 }
 
 /*--------------------------------------------------------------
-## 404 LAYOUT
+## 404 & SEARCH NONE LAYOUT
 --------------------------------------------------------------*/
 .error404 .page-header {
-  grid-column: 1/-1;
+  grid-column: 2/-2;
   align-self: center;
-  width: 900px;
+  width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .error404 .page-content, .search-no-results .page-content {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .error404 .page-content p, .error404 .page-content .search-form, .search-no-results .page-content p, .search-no-results .page-content .search-form {
+    flex-basis: 100%;
+  }
+  .error404 .page-content p, .search-no-results .page-content p {
+    margin-bottom: 0;
+  }
+  .error404 .page-content .search-form, .search-no-results .page-content .search-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .error404 .page-content .widget, .search-no-results .page-content .widget {
+    flex: 1 0 50%;
+  }
 }
 
 /*--------------------------------------------------------------
