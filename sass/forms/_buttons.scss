@@ -7,7 +7,7 @@ input[type="submit"] {
 	border-radius: 3px;
 	background: $color__background-button;
 	color: $color__black;
-	@include font-size(0.75);
+	@include font-size(0.8);
 	line-height: 1;
 	padding: .5rem 1rem;
         
@@ -24,7 +24,8 @@ input[type="submit"] {
 }
 
 #button-menu-header, .search-submit {
-    @include font-size(2.5);
     background: transparent;
     border: 0;
+    font-weight: 700;
 }
+

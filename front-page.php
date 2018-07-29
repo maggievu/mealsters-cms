@@ -32,19 +32,19 @@ get_header();
                         <div class="intro-step-main">
                             <div class="step">
                                 <img class="step-image" src="<?php echo get_template_directory_uri(); ?>/img/svg/step1.svg" alt="How does Mealsters work? Step 1">
-                                <p class="big">Choose your meal</p>
+                                <p>Choose your meal</p>
                                 <p>Keep swiping to see the perfect meal for the moment.</p>
                             </div>
 
                             <div class="step">
                                 <img class="step-image" src="<?php echo get_template_directory_uri(); ?>/img/svg/step2.svg" alt="How does Mealsters work? Step 2">
-                                <p class="big">See more details</p>
+                                <p>See more details</p>
                                 <p>Check more information about the ingredients, price, and restaurant info.</p>
                             </div>
 
                             <div class="step">
                                 <img class="step-image" src="<?php echo get_template_directory_uri(); ?>/img/svg/step3.svg" alt="How does Mealsters work? Step 3">
-                                <p class="big">Order or Book</p>
+                                <p>Order or Book</p>
                                 <p>Explore the restaurant’s website or call them directly.</p>
                             </div>
                         </div>

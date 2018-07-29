@@ -18,17 +18,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-app-text h2, .intro-step-heading, .section-title {
-    @include font-size(3);
+    @include font-size(2.5);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    
+    @media screen and (min-width: $query__tablet) {
+        @include font-size(3);
+    }
 }
 
 .widget-title, .widgettitle, .section-title {
     color: $color__red;
     /*text-align: center;*/
-}   
+}
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
-    @include font-size(3);
+    @include font-size(2.5);
+    font-weight: 600;
     color: $color__white-lighter;
+    line-height: 1.15;
+    
+    @media screen and (min-width: $query__tablet) {
+        @include font-size(3);
+    }
 }
 
 .widget_yarpp_widget h3 {

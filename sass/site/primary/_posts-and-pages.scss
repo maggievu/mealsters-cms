@@ -32,6 +32,7 @@
 
     .post-thumbnail {
         margin-top: -4rem;
+        /*margin-top: 0;*/
             
         @media screen and (min-width: $query__tablet) {
             margin-top: -6rem;
@@ -74,7 +75,7 @@
         @include margin-x(auto);
 
         @media screen and (max-width: $query__desktop-small) {
-            margin-left: 5%;
+            /*margin-left: 5%;*/
         }
     }
 }
@@ -87,6 +88,7 @@
             height: 3px;
             background: $color__white-lighter;
             display: block;
+            margin-top: .5rem;
         }
 }
 

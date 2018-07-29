@@ -33,8 +33,11 @@
             align-items: center;
             @include margin-y(10rem);
             
-            .intro-app-image { 
-                max-width: 350px; 
+            .intro-app-image {
+                max-width: 280px;
+                @media screen and (min-width: $query__tablet) {
+                    max-width: 350px;
+                }
                 flex-basis: 40%; 
             }
 
@@ -64,37 +67,44 @@
         
     } //end of intro-step
     
-    .page-header {
+    .page-header { // heading of section-category
         @media screen and (max-width: $query__tablet) {
             text-align: center;
         }
         
         @media screen and (min-width: $query__tablet) {
-            margin: 1rem 2%;
+            @include margin-x(2%);
         }
     }
     
     .section-category, .intro-step-main {
-        .post, .step {
-            padding: 1rem 0;
+        .post {
+            @include padding-y(1rem);
             box-sizing: border-box;
         }
         
         .step {
-            padding-left: 2rem;
-            padding-right: 2rem;
+            @include padding-x(2rem);
+            @include padding-y(1rem);
         }
         
         &:not(.our-story) .post {     
             border-bottom: 2px solid $color__white-dark;
         }
-            
+
         .entry-title {
             @include margin-y(1rem);
         }
 
         .entry-meta, .entry-footer {
             color: $color__black-light;
+        }
+        
+        @media screen and (max-width: $query__tablet) {
+            .post-thumbnail img {
+                max-height: 80vh;
+                object-fit: cover;
+            }
         }
         
         @media screen and (min-width: $query__tablet) {
@@ -121,6 +131,7 @@
         // Create a special layout for our story section
         &.our-story {
             .page-header {
+                // undo margin-x for heading Our Story 
                 @include margin-x(0);
                 margin-bottom: 1rem;
             }
@@ -172,10 +183,12 @@
             }
             
             @media screen and (min-width: $query__tablet) and (max-width: $query__desktop-large) {
+                // because from the breakpoint desktop large, margin-x has to be auto to make sure the section is centered
                 @include margin-x(2%);
             }
             
             @media screen and (min-width: $query__desktop-large) {
+                // from the breakpoint desktop large, put a margin-x on heading Our Story to make sure it's aligned with the rest of the page
                 .page-header { @include margin-x(2%); }
             }
                 

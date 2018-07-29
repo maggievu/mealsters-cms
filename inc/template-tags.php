@@ -69,7 +69,7 @@ if ( ! function_exists( 'mealsters_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'mealsters' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links">' . esc_html__( 'Tagged %1$s', 'mealsters' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links">' . esc_html__( 'Tags: %1$s', 'mealsters' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 

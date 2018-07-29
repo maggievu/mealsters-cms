@@ -400,8 +400,8 @@ optgroup,
 textarea {
   color: #141414;
   font-family: "open sans", verdana, helvetica, arial, sans-serif;
-  font-size: 14.4px;
-  font-size: 0.9rem;
+  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -426,8 +426,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-app-text h2, .intro-step-heading, .section-title {
-  font-size: 48px;
-  font-size: 3rem;
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .intro-app-text h2, .intro-step-heading, .section-title {
+    font-size: 48px;
+    font-size: 3rem;
+  }
 }
 
 .widget-title, .widgettitle, .section-title {
@@ -436,9 +444,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
-  font-size: 48px;
-  font-size: 3rem;
+  font-size: 40px;
+  font-size: 2.5rem;
+  font-weight: 600;
   color: #fff;
+  line-height: 1.15;
+}
+@media screen and (min-width: 768px) {
+  .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
+    font-size: 48px;
+    font-size: 3rem;
+  }
 }
 
 .widget_yarpp_widget h3 {
@@ -532,9 +548,41 @@ small, .small {
 }
 
 /*--------------------------------------------------------------
-## Typography for entry meta, entry footer and recent post meta
+## Typography for front page
 --------------------------------------------------------------*/
-.entry-meta, .entry-footer, .recent-post-meta {
+@media screen and (min-width: 768px) {
+  .home p {
+    font-size: 14.4px;
+    font-size: 0.9rem;
+  }
+}
+
+.intro-step {
+  /*    p:last-of-type {
+          @include font-size(1);
+      }*/
+}
+.intro-step p:first-of-type {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+/*--------------------------------------------------------------
+## Typography for buttons
+--------------------------------------------------------------*/
+#button-menu-header span {
+  font-size: 28.8px;
+  font-size: 1.8rem;
+}
+
+/*--------------------------------------------------------------
+## Typography for entry meta, entry footer
+--------------------------------------------------------------*/
+.entry-meta, .entry-footer {
   font-size: 14.4px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -706,8 +754,8 @@ input[type="submit"] {
   border-radius: 3px;
   background: #e6e6e6;
   color: #141414;
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 12.8px;
+  font-size: 0.8rem;
   line-height: 1;
   padding: .5rem 1rem;
   cursor: pointer;
@@ -729,10 +777,9 @@ input[type="submit"]:focus {
 }
 
 #button-menu-header, .search-submit {
-  font-size: 40px;
-  font-size: 2.5rem;
   background: transparent;
   border: 0;
+  font-weight: 700;
 }
 
 input[type="text"],
@@ -784,6 +831,22 @@ textarea {
 }
 
 /*--------------------------------------------------------------
+## CONTACT (NINJA) FORM LAYOUT
+--------------------------------------------------------------*/
+.nf-form-cont input[type="text"], .nf-form-cont input[type="email"], .nf-form-cont textarea {
+  border: 1px solid #cfcfcf;
+}
+@media screen and (min-width: 768px) {
+  .nf-form-cont input[type="text"], .nf-form-cont input[type="email"], .nf-form-cont textarea {
+    font-size: 14.4px;
+    font-size: 0.9rem;
+  }
+}
+.nf-form-cont .nf-form-fields-required {
+  margin-bottom: 1rem;
+}
+
+/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -824,8 +887,11 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
+.main-navigation a {
+  padding-bottom: .3rem;
+}
 .main-navigation .current-menu-item a, .main-navigation a:hover {
-  box-shadow: 0 -3px inset #fff;
+  box-shadow: 0 -2px inset #fff;
 }
 
 .header-content a {
@@ -862,7 +928,7 @@ a:hover, a:active {
 ## Menu Footer
 --------------------------------------------------------------*/
 .menu-footer a {
-  color: #414141;
+  color: #141414;
 }
 .menu-footer a:hover {
   color: #f41e2d;
@@ -872,7 +938,7 @@ a:hover, a:active {
 ## Menu Social (div '.social-navigation' > ul '.menu-social')
 --------------------------------------------------------------*/
 .menu-social a {
-  color: #414141;
+  color: #141414;
 }
 .menu-social a:hover {
   color: #f41e2d;
@@ -923,12 +989,12 @@ a:hover, a:active {
 
 .nav-previous a:before {
   content: "\f0a8";
-  padding-right: .5rem;
+  padding-right: .3rem;
 }
 
 .nav-next a:after {
   content: "\f0a9";
-  padding-left: .5rem;
+  padding-left: .3rem;
 }
 
 /*--------------------------------------------------------------
@@ -979,8 +1045,8 @@ ul {
   }
   .menu-header li {
     flex-basis: 100%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
   }
 
   #button-menu-header {
@@ -999,9 +1065,6 @@ ul {
   }
   .menu-header li {
     flex-grow: 1;
-  }
-  .menu-header li a {
-    padding-bottom: .5rem;
   }
 }
 /*--------------------------------------------------------------
@@ -1165,9 +1228,16 @@ ul {
     margin-bottom: 10rem;
   }
   .home .site-main .intro-app .intro-app-image {
-    max-width: 350px;
+    max-width: 280px;
     flex-basis: 40%;
   }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .home .site-main .intro-app .intro-app-image {
+    max-width: 350px;
+  }
+}
+@media screen and (min-width: 768px) {
   .home .site-main .intro-app .intro-app-text {
     text-align: right;
     flex-basis: 50%;
@@ -1197,16 +1267,20 @@ ul {
 }
 @media screen and (min-width: 768px) {
   .home .site-main .page-header {
-    margin: 1rem 2%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
-.home .site-main .section-category .post, .home .site-main .section-category .step, .home .site-main .intro-step-main .post, .home .site-main .intro-step-main .step {
-  padding: 1rem 0;
+.home .site-main .section-category .post, .home .site-main .intro-step-main .post {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   box-sizing: border-box;
 }
 .home .site-main .section-category .step, .home .site-main .intro-step-main .step {
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .home .site-main .section-category:not(.our-story) .post, .home .site-main .intro-step-main:not(.our-story) .post {
   border-bottom: 2px solid #cfcfcf;
@@ -1217,6 +1291,12 @@ ul {
 }
 .home .site-main .section-category .entry-meta, .home .site-main .section-category .entry-footer, .home .site-main .intro-step-main .entry-meta, .home .site-main .intro-step-main .entry-footer {
   color: #414141;
+}
+@media screen and (max-width: 768px) {
+  .home .site-main .section-category .post-thumbnail img, .home .site-main .intro-step-main .post-thumbnail img {
+    max-height: 80vh;
+    object-fit: cover;
+  }
 }
 @media screen and (min-width: 768px) {
   .home .site-main .section-category, .home .site-main .intro-step-main {
@@ -1498,6 +1578,7 @@ body:not(.home) .site-header {
 }
 .single .post-thumbnail {
   margin-top: -4rem;
+  /*margin-top: 0;*/
 }
 @media screen and (min-width: 768px) {
   .single .post-thumbnail {
@@ -1536,7 +1617,7 @@ body:not(.home) .site-header {
 }
 @media screen and (max-width: 1024px) {
   .page .entry-header {
-    margin-left: 5%;
+    /*margin-left: 5%;*/
   }
 }
 
@@ -1549,6 +1630,7 @@ body:not(.home) .site-header {
   height: 3px;
   background: #fff;
   display: block;
+  margin-top: .5rem;
 }
 
 /*--------------------------------------------------------------
@@ -1679,21 +1761,21 @@ body:not(.home) .site-header {
 .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail > img {
   margin: 0;
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 425px) {
   .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: center;
   }
   .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail > img {
-    width: 200px;
+    flex: 0 0 50%;
     height: auto;
   }
   .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail .yarpp-thumbnail-title {
     margin-left: 1rem;
   }
 }
-@media screen and (min-width: 414px) {
+@media screen and (min-width: 425px) {
   .widget_yarpp_widget .yarpp-thumbnails-horizontal {
     display: flex;
     flex-flow: row wrap;
@@ -1712,6 +1794,9 @@ body:not(.home) .site-header {
   .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail .yarpp-thumbnail-title {
     text-align: center;
     display: block;
+  }
+  .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail:last-child {
+    flex-grow: 0;
   }
 }
 @media screen and (min-width: 1024px) {

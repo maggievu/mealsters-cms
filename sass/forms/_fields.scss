@@ -31,3 +31,22 @@ select {
 textarea {
 	width: 100%;
 }
+
+/*--------------------------------------------------------------
+## CONTACT (NINJA) FORM LAYOUT
+--------------------------------------------------------------*/
+
+.nf-form-cont {
+    input[type="text"], input[type="email"], textarea {
+        @media screen and (min-width: $query__tablet) {
+            @include font-size(.9);
+        }
+        
+	border: 1px solid $color__white-dark;
+    }
+    
+    .nf-form-fields-required {
+        margin-bottom: 1rem;
+    }
+    
+}

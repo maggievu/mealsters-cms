@@ -81,12 +81,42 @@ small, .small {
     }
 }
 
-
 /*--------------------------------------------------------------
-## Typography for entry meta, entry footer and recent post meta
+## Typography for front page
 --------------------------------------------------------------*/
 
-.entry-meta, .entry-footer, .recent-post-meta {
+.home p {
+    @media screen and (min-width: $query__tablet) {
+        @include font-size(.9);
+    }
+}
+
+.intro-step {
+    p:first-of-type {
+        @include font-size(1);
+        font-weight: 600;
+        @include margin-y(.5rem);
+        text-transform: uppercase;
+    }
+    
+/*    p:last-of-type {
+        @include font-size(1);
+    }*/
+}
+
+/*--------------------------------------------------------------
+## Typography for buttons
+--------------------------------------------------------------*/
+
+#button-menu-header span {
+    @include font-size(1.8);
+}
+
+/*--------------------------------------------------------------
+## Typography for entry meta, entry footer
+--------------------------------------------------------------*/
+
+.entry-meta, .entry-footer {
     @include font-size(.9);
     font-weight: 500;
     text-transform: uppercase;

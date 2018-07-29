@@ -43,8 +43,12 @@ a {
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
 .main-navigation {
+    a {
+        padding-bottom: .3rem;
+    }
+    
     .current-menu-item a, a:hover {
-        box-shadow: 0 -3px inset $color__white-lighter;
+        box-shadow: 0 -2px inset $color__white-lighter;
     }
 }
 
@@ -84,7 +88,7 @@ a {
 ## Menu Footer
 --------------------------------------------------------------*/
 .menu-footer a {
-    color: $color__black-light;
+    color: $color__black;
     &:hover {
         color: $color__red-darker;
     }
@@ -95,7 +99,7 @@ a {
 --------------------------------------------------------------*/
 .menu-social {
     a {
-        color: $color__black-light;
+        color: $color__black;
         &:hover {
             color: $color__red-darker;
         }
@@ -158,10 +162,10 @@ a {
 
 .nav-previous a:before {
     content: "\f0a8";
-    padding-right: .5rem;
+    padding-right: .3rem;
 }
 
 .nav-next a:after {
     content: "\f0a9";
-    padding-left: .5rem;
+    padding-left: .3rem;
 }

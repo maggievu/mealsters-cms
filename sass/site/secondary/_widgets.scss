@@ -31,11 +31,11 @@
             
             @media screen and (max-width: $query__phone-large) {
                 display: flex;
-                flex-flow: row wrap;
+                flex-flow: row nowrap;
                 align-items: center;
                 
                 &>img {
-                    width: 200px;
+                    flex: 0 0 50%;
                     height: auto;
                 }
                 
@@ -63,6 +63,10 @@
                 .yarpp-thumbnail-title {
                     text-align: center;
                     display: block;
+                }
+                
+                &:last-child {
+                    flex-grow: 0;
                 }
             }
         }

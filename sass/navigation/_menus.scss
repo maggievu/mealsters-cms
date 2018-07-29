@@ -40,12 +40,11 @@ ul {
         position: absolute;
         flex-flow: row wrap;
         right: 1rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        @include padding-y(1rem);
         
-        li{
+        li {
             flex-basis: 100%;
-            @include margin-y(.5rem);
+            @include margin-y(.6rem);
         }
     }
     
@@ -66,7 +65,6 @@ ul {
         
         li {
             flex-grow: 1; 
-            a{ padding-bottom: .5rem; }
         }
     }
 }
