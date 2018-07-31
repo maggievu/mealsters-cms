@@ -3,6 +3,8 @@ h1, h2, h3, h4, h5, h6 {
         font-family: $font__heading;
 }
 
+
+// Logos inside header and footer
 .site-header .site-title, .site-footer .footer-logo {
     font-family: $font__heading;
     @include font-size(2);
@@ -17,7 +19,9 @@ h1, h2, h3, h4, h5, h6 {
     color: $color__black; 
 }
 
-.intro-app-text h2, .intro-step-heading, .section-title {
+
+// Headings on front page (not site-tile)
+.intro-app h2, .intro-step-heading, .section-title {
     @include font-size(2.5);
     line-height: 1.15;
     margin-bottom: 1rem;
@@ -27,15 +31,12 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.widget-title, .widgettitle {
-    color: $color__red;
-    font-weight: 600;
-}
-
-.section-title {
+.section-title, .intro-app h2 {
     color: $color__red;
 }
 
+
+// Headings on .single, .page, .archive, .search
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
     @include font-size(2.5);
     font-weight: 600;
@@ -45,6 +46,13 @@ h1, h2, h3, h4, h5, h6 {
     @media screen and (min-width: $query__tablet) {
         @include font-size(3);
     }
+}
+
+
+// Widget headings
+.widget-title, .widgettitle {
+    color: $color__red;
+    font-weight: 600;
 }
 
 .widget_yarpp_widget h3 {

@@ -6,11 +6,19 @@
     display: block;
 }
 
+
+
+/************************************************/
+/*                                              */
+/*    Comments section on single view           */
+/*                                              */
+/************************************************/
+
 .comments-area {
+    
     @media screen and (max-width: $width-single-wrapper) {  
         @include margin-x (2%);
     }
-    
     
     label:not([for="wp-comment-cookies-consent"]) {
         display: inline-block;

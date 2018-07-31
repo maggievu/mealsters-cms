@@ -28,7 +28,7 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
-// Margin
+// Margins
 @mixin margin-x($value) {
     margin-left: $value;
     margin-right: $value;
@@ -39,7 +39,7 @@
     margin-bottom: $value;
 }
 
-// Padding
+// Paddings
 @mixin padding-x($value) {
     padding-left: $value;
     padding-right: $value;

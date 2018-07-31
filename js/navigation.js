@@ -17,6 +17,8 @@ $j(document).ready(function() {
         } else {
             $j(this).removeAttr('aria-expanded');
         }
+        
+//        $j(this).toggleClass('button-close');
         $j('#menu-header').slideToggle(500);
         $j('#menu-header:visible').css('display', 'flex');
     });

@@ -123,7 +123,7 @@ small, .small {
 }
 
 
-.home .site-main .section-category.our-story .entry-footer {
+.home .site-main .section-category.section-story .entry-footer {
     color: $color__white;
 }
 
@@ -134,6 +134,7 @@ small, .small {
 .single .entry-meta {
     @include font-size(1);
     color: $color__white-lighter;
+    margin-top: 1.5rem;
 }
 
 

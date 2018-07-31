@@ -1,15 +1,24 @@
 /*--------------------------------------------------------------
 ## FRONT PAGE LAYOUT
 --------------------------------------------------------------*/
+
+// Wrap every components inside front page with a max-width and center them with margin-x auto
 .home .site-main section:not(.intro-step) {
     max-width: $width-wrapper;
-    margin: 5rem auto;
+    @include margin-x(auto);
+    @include margin-y(5rem);
 }
 
 .home .site-main {
     @media screen and (min-width: $query__tablet) {
         margin-top: 12rem !important; // make sure the phone demo-screenshot doesn't touch the .site-main
     }
+    
+    /******************************************/
+    /*                                        */
+    /*      First section: intro app          */
+    /*                                        */
+    /******************************************/
     
     .intro-app {
         &>* {
@@ -23,10 +32,6 @@
                 max-width: 300px;
                 margin-bottom: 3rem;
             }
-        }
-        
-        h2 {
-            color: $color__red;
         }
         
         @media screen and (min-width: $query__tablet) {
@@ -49,7 +54,14 @@
                 flex-basis: 50%;
             }
         }
-    } //end of intro-app
+    } //end of intro-app =======================================
+    
+    
+    /************************************************/
+    /*                                              */
+    /*      Second section: intro step              */
+    /* linked with _animations.scss and carousel.js */
+    /************************************************/
     
     .intro-step {
         text-align: center;
@@ -57,7 +69,7 @@
         position: relative;
         overflow: hidden;
         @include padding-y(2rem);
-        background: linear-gradient(to right, rgba(246,87,98,.8), rgba(164,147,255,.8)), url('/mealsters/wp-content/themes/mealsters/img/katherine-chase-493940-unsplash.jpg') center no-repeat;
+        background: linear-gradient(to right, rgba(246,87,98,.8), rgba(164,147,255,.8)), url('img/katherine-chase-493940-unsplash.jpg') center no-repeat;
         background-size: cover;
         
         // in case display:grid is not supported, site-header will have a max-width, 
@@ -92,14 +104,24 @@
             }
         }
         
-    } //end of intro-step
+    } //end of intro-step ==================================
     
-    .page-header { // heading of section-category
+    
+    
+    .section-header { // heading of all section-category
         @media screen and (max-width: $query__tablet) {
             text-align: center;
             @include margin-x(2%);
         }
     }
+    
+    
+    
+    /************************************************/
+    /*                                              */
+    /*      Loop section                            */
+    /*                                              */
+    /************************************************/
     
     .section-category {
         .post {
@@ -108,7 +130,7 @@
             box-sizing: border-box;
         }
         
-        &:not(.our-story) .post {     
+        &:not(.section-story) .post {     
             border-bottom: 2px solid $color__white-dark;
         }
 
@@ -120,6 +142,8 @@
             color: $color__black-light;
         }
         
+        
+        // Make sure images on mobile views don't get higher than 70vh to increase readability
         @media screen and (max-width: $query__tablet) {
             .post-thumbnail img {
                 
@@ -130,11 +154,13 @@
             }
         }
         
+        
+        // Create a 3-column flex layout for section-discoveries and section-events
         @media screen and (min-width: $query__tablet) {
             display: flex;
             flex-flow: row wrap;
             
-            .page-header {
+            .section-header {
                 flex: 1 0 98%;
                 margin-left: 2%;
             }   
@@ -144,6 +170,7 @@
                 flex: 1 0 21%;
             }
             
+            // Make sure all images have same height and since max-width=100%, with object-fit: cover, all images will have same sizes in the flex layout
             .post-thumbnail img {
                 @supports (object-fit: cover) {
                     max-height: 300px;
@@ -154,15 +181,16 @@
             }
         }
         
-        // Create a special layout for our story section
-        &.our-story {
+        
+        // Create a special layout for section-story
+        &.section-story {
             @media screen and (min-width: 500px) {
                 display: flex;
                 flex-flow: row wrap;
             }
             
-            .page-header {
-                // undo margin-x for heading Our Story 
+            .section-header {
+                // undo margin-x for heading in section-story 
                 @include margin-x(0);
                 margin-bottom: 1rem;
                 flex-basis: 100%;
@@ -181,9 +209,10 @@
                     text-align: center;
                 }
                 
+                // Insert the illustrative icons before the post instead of the usual post-thumnail
                 &:before {
                     content: "";
-                    background: url('/mealsters/wp-content/themes/mealsters/img/svg/story-icon.svg') no-repeat center;
+                    background: url('img/svg/story-icon.svg') no-repeat center;
                     display: inline-block;
                     width: 100px;
                     
@@ -220,11 +249,11 @@
             }
             
             @media screen and (min-width: $query__desktop-large) {
-                // from the breakpoint desktop large, put a margin-x on heading Our Story to make sure it's aligned with the rest of the page
-                .page-header { @include margin-x(2%); }
+                // from the breakpoint desktop large, put a margin-x on heading section-story to make sure it's aligned with the rest of the page
+                .section-header { @include margin-x(2%); }
             }
                 
-        } //end of our-story
+        } //end of section-story
         
     } //end of section-category
     

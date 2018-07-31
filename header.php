@@ -76,11 +76,16 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="Phone Demo Screenshot">
                         </div>
                                 
-                <?php elseif ( is_singular() ) : ?>
+                <?php elseif ( is_singular() ) : 
+                        if  ( has_category('Story') ) : ?>
+                        <header class="entry-header entry-header-story">
+                        <?php else: ?>
                         <header class="entry-header">
+                        <?php endif; ?>
+                            
+                            <?php the_title( '<h1 class="entry-title">', '</h1>' );
         
-                            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                            <?php if  ( has_category('Discoveries') ) :
+                            if  ( has_category('Discoveries') ) :
                                     ?>
                                     <div class="entry-meta">
                                             <?php

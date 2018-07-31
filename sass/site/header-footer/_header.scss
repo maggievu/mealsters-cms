@@ -1,12 +1,15 @@
-/* 
-    Created on : Jun 24, 2018, 12:14:29 PM
-    Author     : Maggie
-*/
+/*******************************************************************/
+/*                                                                 */
+/*                       HEADER LAYOUT                             */
+/*                                                                 */
+/*******************************************************************/
 
 .site-header {
     height: 100vh;
     position: relative;
     
+    
+    // On mobile, site-header will span the entire window height with the logo and menu button on top and content in the middle
     @media screen and (max-width: $query__tablet) {
         display: flex;
         flex-flow: row wrap;
@@ -21,16 +24,13 @@
             margin-top: 26px;
         }
         
-/*        hr {
-            flex-basis: 100%;
-        }*/
-        
         .header-content {
             text-align: center;
         }
-    }
+    } // end of mobile view =====================================
     
     
+    // From tablet size, the phone-demo-screenshot will appear and be on the right side
     @media screen and (min-width: $query__tablet) {
         height: 580px; 
         padding-top: 1rem;
@@ -48,8 +48,12 @@
             padding-top: 0;
             width: initial;
         }
-    }
+    } // end of min-width-tablet ==================================
     
+    
+    // Put a semi-transparent colored-gradient background on site-header (inside pseudo element :before)
+    // The reason this method was chosen (instead of simply putting a multi-background) is because 
+    // on single (posts & pages), the post-thumbnails are coming off of the page and will be visible only with the method chosen here.
     &:before {
         content: "";
         background: linear-gradient(to bottom right, $color__violetred, $color__weborange);
@@ -62,8 +66,9 @@
         z-index: -100;
     }
     
+    
+    // Image in the background of site-header
     .header-background {
-        
         img {
             position: absolute;
             height: 100%;
@@ -78,9 +83,12 @@
         }
     }
     
+    
+    // Create a menu bar with the logo on the left and the menu on the right
     .site-branding { 
         flex-basis: 66%;
         width: 50%;
+        z-index: -11;
         
         @supports (display: grid) {
             grid-column: 2/3;
@@ -111,7 +119,7 @@
             grid-column: 3/4;
             width: auto;
         }
-    }
+    } // end of menu bar ======================================
     
     hr {
         align-self: start;
@@ -122,6 +130,8 @@
         }
     }
     
+    
+    // The attention-catcher
     .header-content {
         flex-basis: 100%;
         /*display: table-cell;*/
@@ -131,8 +141,10 @@
            grid-column: 2/3;
            width: auto;
         }
-    }
+    } // end of the attention catcher =========================
     
+    
+    // The phone-demo-screenshot
     .header-demo {
         justify-self: end;
         position: absolute;
@@ -142,21 +154,16 @@
         @supports (display: grid) {
             grid-column: 3/4;
         }
-    }
+    } // end of the phone-demo-screenshot =========================
     
     // put margin-x on header components on smaller screens
-    /*@media screen and (max-width: $query__desktop-large) {*/
-        .site-branding, .main-navigation, .header-content, .header-demo {
-            @include margin-x(2%);
-        }
-    /*}*/
+    .site-branding, .main-navigation, .header-content, .header-demo {
+        @include margin-x(2%);
+    }
 }
 
+
+// On single views, site-header has a shorter height 
 body:not(.home) .site-header {
     height: 400px;
 }
-
-.site-branding, #menu-header{
-    /*margin-top: 30px;*/
-}
-    

@@ -11,7 +11,6 @@ a {
 	&:hover, &:active {
 		outline: 0;
 	}
-        
 }
 
 .entry-title, .widget {
@@ -23,7 +22,7 @@ a {
     }
 }
 
-.our-story {
+.section-story {
     a, .entry-title a {
         color: $color__white-lighter;
         &:hover {
@@ -63,7 +62,7 @@ a {
     transition: all .5s ease;
 
     &:hover {
-        background: $color__blue;
+        background: $color__blue-dark;
     }
     
     &::before {
@@ -93,6 +92,7 @@ a {
         color: $color__red;
     }
 }
+
 
 /*--------------------------------------------------------------
 ## Menu Social (div '.social-navigation' > ul '.menu-social')

@@ -10,18 +10,22 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    
 	<header class="entry-header">
             
+                <!-- The posts from category story will not have post-thumbnails only on front page -->
+                
 		<?php if ( ! is_front_page() ) :
                     mealsters_post_thumbnail();
-                elseif ( ! has_category('Our Story')) :
+                elseif ( ! has_category('Story')) :
                     mealsters_post_thumbnail();
                 endif;
         
-		if ( ! is_singular() ) :
-			the_title( '<h3 class="entry-title bigger"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-		endif;
+                the_title( '<h3 class="entry-title bigger"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 
+                
+                
+                // Outputs only custom fields for category discoveries and events
 		if  ( has_category('Discoveries') ) :
 			?>
 			<div class="entry-meta">
@@ -44,11 +48,10 @@
                 endif; ?>
 	</header><!-- .entry-header -->
 
-
+        
+        <!-- The content is found only on single views, the rest of the pages uses the excerpt -->
 	<div class="entry-content">
-		<?php
-                if ( is_singular() ) :
-                    the_content( sprintf(
+		<?php the_excerpt( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mealsters' ),
@@ -60,21 +63,6 @@
 			),
 			get_the_title()
 		) );
-                
-                else :
-		the_excerpt( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mealsters' ),
-				array(
-					'span'  => array(
-					'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
-                endif;
 
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mealsters' ),
@@ -82,7 +70,8 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
-
+        
+        
 	<footer class="entry-footer">
 		<?php mealsters_entry_footer(); ?>
 	</footer><!-- .entry-footer -->

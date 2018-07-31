@@ -1,3 +1,9 @@
+/************************************************/
+/*                                              */
+/*            FOOTER LAYOUT                     */
+/*                                              */
+/************************************************/
+
 .site-footer {
     max-width: $width-wrapper;
     @include margin-x(2%);
@@ -47,17 +53,6 @@
         }
     }
     
-    .footer-content {
-
-        
-        .footer-nav-container {
-            
-        }
-        
-        .footer-footnote {
-            
-        }
-    }
     
     .site-info {
         text-align: center;

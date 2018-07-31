@@ -8,6 +8,12 @@
 }
 
 
+/*******************************************************************/
+/*                                                                 */
+/*             YARP plugin                                         */
+/*                                                                 */
+/*******************************************************************/
+
 .widget_yarpp_widget {
     max-width: $width-single-wrapper;
     @include margin-y(2rem);
@@ -17,11 +23,15 @@
         @include margin-x(auto);
     }
     
+    
+    // YARPP only seen on posts not on pages
     .page & {
         display: none;
     }
     
     .yarpp-thumbnails-horizontal {
+        
+        // Undo some of YARPP default styling
         .yarpp-thumbnail {
             border: 0;
             @include margin-y(1rem);
@@ -34,28 +44,37 @@
                 margin: 0;
             }
             
+            
+            // YARPP post has 2-column layout (post-thumbnail on the left and title on the right)
             @media screen and (max-width: $query__phone-large) {
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
                 
                 &>img {
-                    flex: 0 0 50%;
+                    flex: 0 0 60%;
                     height: auto;
+                    
+                    @supports (object-fit: cover) {
+                        object-fit: cover;
+                        max-height: 200px;
+                    }
                 }
                 
                 .yarpp-thumbnail-title {
                     margin-left: 1rem;
                 }
             }
-        }
+        } // end of YARPP posts =================================
         
+        
+        // YARPP has 2-column layout on tablet
         @media screen and (min-width: $query__phone-large) {
             display: flex;
             flex-flow: row wrap;
             
             .yarpp-thumbnail {
-                flex: 1 0 46%;
+                flex-basis: 46%;
                 @include margin-x(2%);
                 border-bottom: 2px solid $color__white-dark;
             
@@ -73,13 +92,10 @@
                     text-align: center;
                     display: block;
                 }
-                
-                &:last-child {
-                    flex-grow: 0;
-                }
             }
         }
         
+        // YARPP has 3-column layout on desktop
         @media screen and (min-width: $query__desktop-small) {
             .yarpp-thumbnail {
                 flex-basis: 29.333%;
@@ -99,7 +115,15 @@
             width: auto;
         }
     }
-}
+} // end of YARPP widget =============================
+
+
+
+/*******************************************************************/
+/*                                                                 */
+/*             SEARCH WIDGET                                       */
+/*                                                                 */
+/*******************************************************************/
 
 .search-form {
     .search-field {

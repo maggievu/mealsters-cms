@@ -22,25 +22,33 @@
 }
 
 
-/*--------------------------------------------------------------
-## SINGLE PAGE LAYOUT
---------------------------------------------------------------*/
+/************************************************/
+/*                                              */
+/*      SINGLE PAGE-LAYOUT                      */
+/*                                              */
+/************************************************/
+
 .single {
     .header-background img {
-        object-position: 50% 95%;
+        @supports (object-fit: cover) {
+            object-position: 50% 95%;
+        }
     }
-
+    
+    
+    // Make the top part of the post thumbnail overlap with the header
     .post-thumbnail {
         margin-top: -4rem;
-        /*margin-top: 0;*/
             
         @media screen and (min-width: $query__tablet) {
             margin-top: -6rem;
         }
         
+        
+        // Make sure post thumbnails don't get longer than 100vh on mobile views
         img {
             @supports (object-fit: cover) {
-                max-height: 100vh;
+                max-height: 90vh;
                 object-fit: cover;
             }
         }
@@ -52,6 +60,11 @@
         @supports (display: grid) {
             grid-column: 1/-1;
             align-self: start;
+            
+            // Only on posts which has category 'story', .entry-header will be vertically centered in grid-cell to have more balance
+            &.entry-header-story {
+                align-self: center;
+            }
         }
         
         width: $width-single-wrapper;
@@ -61,7 +74,15 @@
             @include margin-x(auto);
         }
     }
-}
+} // end of single page layout ==========================================
+
+
+
+/**************************************************************************************************/
+/*                                                                                                */
+/*   Put max-width on and center all components on .single, .page, .archive, .search, .error404   */
+/*                                                                                                */
+/**************************************************************************************************/
 
 .single, .page {
     .content-area {
@@ -75,6 +96,8 @@
         }
     }
     
+    
+    // Make sure ul has the same margin as p in .entry-content in posts & pages
     .entry-content ul {
         margin-bottom: 1rem;
     }
@@ -85,8 +108,11 @@
         max-width: $width-wrapper;
         margin: 2rem auto;
     }
-}
+} // end of put max-width =======================================
 
+
+
+// On pages, since there's no custom fields, the title should be centered
 .page {
     .entry-header {
         display: table-cell;
@@ -105,6 +131,8 @@
     }
 }
 
+
+// Create a half-border-bottom after the title only on .single and .page
 .single .entry-title, .archive .page-title {
         margin: 1rem 0;
         &:after {
@@ -117,10 +145,17 @@
         }
 }
 
+// Only on posts which has category 'story', .entry-title will not have a half-border-bottom (since they don't have custom fields)
+.single .entry-header-story .entry-title:after {
+    display: none;
+}
 
-/*--------------------------------------------------------------
-## ARCHIVE / SEARCH PAGE LAYOUT
---------------------------------------------------------------*/
+
+/*******************************************************************/
+/*                                                                 */
+/*               ARCHIVE / SEARCH PAGE-LAYOUT                      */
+/*                                                                 */
+/*******************************************************************/
 
 .archive, .search {
     .page-header {
@@ -180,12 +215,14 @@
             }
         }
     }
-}
+} // end of ARCHIVE & SEARCH layout ============================================
         
 
-/*--------------------------------------------------------------
-## 404 & SEARCH NONE LAYOUT
---------------------------------------------------------------*/
+/*******************************************************************/
+/*                                                                 */
+/*               404 & SEARCH-NONE LAYOUT                          */
+/*                                                                 */
+/*******************************************************************/
 
 .error404 {
     .page-header {
@@ -200,6 +237,8 @@
 }
     
 .error404, .search-no-results {
+    
+    // Only on 404 and search-no-results, site-header will have only colors and no background images
     .site-header:before {
         opacity: 1; 
     }
@@ -230,13 +269,15 @@
             }
         }
     }
-}
+} // end of 404 & SEARCH-NONE layout ==============================
 
 
 
-/*--------------------------------------------------------------
-## ATTRIBUTION PAGE (#id117)
---------------------------------------------------------------*/
+/*******************************************************************/
+/*                                                                 */
+/*      ATTRIBUTION PAGE (SOURCES of MEDIA) (#id117)               */
+/*                                                                 */
+/*******************************************************************/
 
 .page-id-117 .post-117 .entry-content {
     text-align: center;
@@ -263,4 +304,4 @@
             @include margin-x(2%);
         }
     }
-}
+} // end of ATTRIBUTION page ================================

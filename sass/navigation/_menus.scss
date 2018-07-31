@@ -44,20 +44,45 @@ ul {
         position: relative;
     }
     
+    
     .menu-header {
         display: none;
-        position: absolute;
         flex-flow: row wrap;
-        right: 1rem;
+        position: absolute;
+        right: 0;
+/*        justify-content: center;
+        top: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        color: black;
+        @include padding-x(2rem);
+        @include padding-y(2rem);
+        z-index: -10;*/
         
         li {
-            flex-basis: 100%;
+            @include padding-x(1rem);
             @include margin-y(.6rem);
+            
+            a {
+                color: $color__black;
+            }
         }
     }
     
+    
     #button-menu-header {
         display: inline-block;
+        padding: .5rem 3px;
+        /*z-index: 10;*/
+        
+/*        &.button-close span {
+            color: red;
+            
+            &:before {
+                content: "\f00d";
+            }
+        }*/
     }
 }
     
@@ -78,6 +103,9 @@ ul {
     }
 }
 
+/*.menu-header.expanded {
+    display: flex;
+}*/
 
 /*--------------------------------------------------------------
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')

@@ -54,7 +54,7 @@ get_header();
                      <!-- LOOP ONE: DISCOVERIES -->
                     <?php
                     
-                    echo '<section class="section-category discoveries">';
+                    echo '<section class="section-category section-discoveries">';
                             $discoveries_query = new WP_Query( array(
                                     'category_name'  => 'discoveries', 
                                     'posts_per_page' => '3',
@@ -63,7 +63,7 @@ get_header();
 
                     if ( $discoveries_query->have_posts() ) : ?>
                         
-                        <header class="page-header"><h2 class="section-title">Discoveries</h2></header>
+                        <header class="section-header"><h2 class="section-title">Discoveries</h2></header>
 
                         <?php /* Start the Loop */
                         while ( $discoveries_query->have_posts() ) : $discoveries_query->the_post();
@@ -80,13 +80,13 @@ get_header();
                 <!-- LOOP TWO: OUR STORY -->
                     <?php
                     
-                    echo '<section class="section-category our-story">';
+                    echo '<section class="section-category section-story">';
                             $story_query = new WP_Query( array(
-                                    'category_name'  => 'our-story', 
+                                    'category_name'  => 'story', 
                                 ) );
 
                     if ( $story_query->have_posts() ) : ?>
-                        <header class="page-header"><h2 class="section-title">Our Story</h2></header>
+                        <header class="section-header"><h2 class="section-title">Our Story</h2></header>
                         <?php
                             /* Start the Loop */
                             while ( $story_query->have_posts() ) : $story_query->the_post();
@@ -103,7 +103,7 @@ get_header();
                 <!-- LOOP THREE: EVENTS -->
                     <?php
                     
-                    echo '<section class="section-category events">';
+                    echo '<section class="section-category section-events">';
                             $events_query = new WP_Query( array(
                                     'category_name'  => 'events', 
                                     'posts_per_page' => '3',
@@ -111,7 +111,7 @@ get_header();
                                 ) );
 
                     if ( $events_query->have_posts() ) : ?>
-                        <header class="page-header"><h2 class="section-title">Upcoming Events</h2></header>
+                        <header class="section-header"><h2 class="section-title">Upcoming Events</h2></header>
 
                         <?php
                             /* Start the Loop */
