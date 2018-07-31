@@ -37,9 +37,10 @@ textarea {
 --------------------------------------------------------------*/
 
 .nf-form-cont {
-    input[type="text"], input[type="email"], textarea {
+    input[type="text"], input[type="email"], .field-wrap textarea {
         @media screen and (min-width: $query__tablet) {
             @include font-size(.9);
+            width: 80%;
         }
         
 	border: 1px solid $color__white-dark;

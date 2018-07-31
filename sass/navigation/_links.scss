@@ -1,9 +1,9 @@
 a {
-	color: $color__red-dark;
+	color: $color__violetred-darker;
         text-decoration: none;
 
 	&:hover, &:focus, &:active {
-		color: $color__red-darker; 
+		color: $color__red; 
 	}
 	&:focus {
 		outline: thin dotted;
@@ -27,7 +27,7 @@ a {
     a, .entry-title a {
         color: $color__white-lighter;
         &:hover {
-            color: $color__white-dark;
+            color: $color__white;
         }
     }
 }
@@ -58,12 +58,12 @@ a {
     text-transform: uppercase;
     margin: 1rem 1rem 0 0;
     padding: 1rem 1.5rem;
-    background: $color__blue-dark;
+    background: $color__blue-darker;
     border-radius: 2rem;
     transition: all .5s ease;
 
     &:hover {
-        background: $color__blue-darker;
+        background: $color__blue;
     }
     
     &::before {
@@ -90,7 +90,7 @@ a {
 .menu-footer a {
     color: $color__black;
     &:hover {
-        color: $color__red-darker;
+        color: $color__red;
     }
 }
 
@@ -101,7 +101,7 @@ a {
     a {
         color: $color__black;
         &:hover {
-            color: $color__red-darker;
+            color: $color__red;
         }
     }
     

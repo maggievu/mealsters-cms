@@ -27,9 +27,13 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.widget-title, .widgettitle, .section-title {
+.widget-title, .widgettitle {
     color: $color__red;
     font-weight: 600;
+}
+
+.section-title {
+    color: $color__red;
 }
 
 .single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {

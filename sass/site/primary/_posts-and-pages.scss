@@ -39,20 +39,27 @@
         }
         
         img {
-            max-height: 100vh;
-            object-fit: cover;
+            @supports (object-fit: cover) {
+                max-height: 100vh;
+                object-fit: cover;
+            }
         }
     }
 
     .entry-header {
-        grid-column: 1/-1;
-        align-self: start;
+        display: table-cell;
+            
+        @supports (display: grid) {
+            grid-column: 1/-1;
+            align-self: start;
+        }
+        
         width: $width-single-wrapper;
-        @include margin-x(auto);
-    }
+        @include margin-x(2%);
     
-    .entry-content ul {
-        margin-bottom: 1rem;
+        @media screen and (min-width: $width-single-wrapper) {
+            @include margin-x(auto);
+        }
     }
 }
 
@@ -60,7 +67,17 @@
     .content-area {
         max-width: $width-single-wrapper;
         @include margin-x(auto);
-    } 
+    }
+    
+    @media screen and (max-width: $width-single-wrapper) {
+        .entry-content, .entry-footer {
+            @include margin-x(2%);
+        }
+    }
+    
+    .entry-content ul {
+        margin-bottom: 1rem;
+    }
 }
 
 .archive, .search, .error404 {
@@ -72,13 +89,18 @@
 
 .page {
     .entry-header {
-        grid-column: 1/-1;
-        align-self: center;
+        display: table-cell;
+        
+        @supports (display: grid) {
+            grid-column: 1/-1;
+            align-self: center;
+        }
+            
         width: $width-single-wrapper;
-        @include margin-x(auto);
-
-        @media screen and (max-width: $query__desktop-small) {
-            /*margin-left: 5%;*/
+        @include margin-x(2%);
+    
+        @media screen and (min-width: $width-single-wrapper) {
+            @include margin-x(auto);
         }
     }
 }
@@ -102,8 +124,13 @@
 
 .archive, .search {
     .page-header {
-        grid-column: 2/-2;
-        align-self: center;
+        display: table-cell;
+        @include margin-x(2%);
+        
+        @supports (display: grid) {
+            grid-column: 2/-2;
+            align-self: center;
+        }
     }
     
     .entry-title {
@@ -111,6 +138,10 @@
     }
     
     .site-main {
+        @media screen and (max-width: $query__tablet) {
+            @include margin-x(2%);
+        }
+        
         @media screen and (min-width: $query__tablet) {
             display: flex;
             flex-flow: row wrap;
@@ -120,17 +151,20 @@
             }   
             
             .post {
-                margin: 1rem 2%;
+                @include margin-x(2%);
+                @include margin-y(1rem);
                 flex-basis: 46%;
                 border-bottom: 2px solid $color__white-dark;
                 @include padding-y(1rem);
             }
 
             .post-thumbnail img {
-                height: 30vw;
-                min-height: 150px;
-                max-height: 300px;
-                object-fit: cover;
+                @supports (object-fit: cover) {
+                    height: 30vw;
+                    min-height: 150px;
+                    max-height: 300px;
+                    object-fit: cover;
+                }
             }
         }
         
@@ -140,7 +174,9 @@
             }
             
             .post-thumbnail img {
-                height: 18vw;
+                @supports (object-fit: cover) {
+                    height: 18vw;
+                }
             }
         }
     }
@@ -153,14 +189,25 @@
 
 .error404 {
     .page-header {
-        grid-column: 2/-2;
-        align-self: center;
-        width: $width-wrapper;
-        @include margin-x(auto);
+        display: table-cell;
+        @include margin-x(2%);
+        
+        @supports (display: grid) {
+            grid-column: 2/-2;
+            align-self: center;
+        }
     }
 }
     
 .error404, .search-no-results {
+    .site-header:before {
+        opacity: 1; 
+    }
+    
+    .site-main {
+        @include margin-x(2%);
+    }
+    
     .page-content {
         @media screen and (min-width: $query__tablet) {
             display: flex;
@@ -181,6 +228,39 @@
             .widget {
                 flex: 1 0 50%;
             }
+        }
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+## ATTRIBUTION PAGE (#id117)
+--------------------------------------------------------------*/
+
+.page-id-117 .post-117 .entry-content {
+    text-align: center;
+    
+    div {
+        @include margin-y(1rem);
+        @include padding-y(1rem);
+        border-bottom: 2px solid $color__white-dark;
+    }
+    
+    @media screen and (min-width: $query__tablet) {
+        display: flex;
+        flex-flow: row wrap;
+        
+        p:first-of-type, p:nth-of-type(2) {
+            flex-basis: 98%;
+            @include margin-x(2%);
+/*            @include font-size(1.2rem);
+            font-weight: 600;*/
+        }
+        
+        div {
+            flex-basis: 46%;
+            @include margin-x(2%);
         }
     }
 }

@@ -10,7 +10,12 @@
 
 .widget_yarpp_widget {
     max-width: $width-single-wrapper;
-    margin: 2rem auto;
+    @include margin-y(2rem);
+    @include margin-x(2%);
+    
+    @media screen and (min-width: $width-single-wrapper) {
+        @include margin-x(auto);
+    }
     
     .page & {
         display: none;
@@ -55,9 +60,13 @@
                 border-bottom: 2px solid $color__white-dark;
             
                 &>img {
-                    height: 30vw;
                     width: 100%;
-                    object-fit: cover;
+                    height: auto;
+                    
+                    @supports (object-fit: cover) {
+                        height: 30vw;
+                        object-fit: cover;
+                    }
                 }
                 
                 .yarpp-thumbnail-title {
@@ -76,7 +85,9 @@
                 flex-basis: 29.333%;
                 
                 &>img {
-                    height: 15vw;
+                    @supports (object-fit: cover) {
+                        height: 15vw;
+                    }
                 }
             }
         }
@@ -110,6 +121,15 @@
     @include padding-y(2rem);
     background-color: $color__red;
     text-align: center;
+    
+    // in case display:grid is not supported, site-header will have a max-width, 
+    // widget_search should have a max-width too so that the layout is consistent.
+    max-width: $query__desktop-large;
+    @include margin-x(auto);
+
+    @supports (display: grid) {
+        max-width: initial;
+    }
 }
 
 

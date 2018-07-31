@@ -1,6 +1,10 @@
 .site-footer {
     max-width: $width-wrapper;
-    @include margin-x(auto);
+    @include margin-x(2%);
+    
+    @media screen and (min-width: $query__desktop-large) {
+        @include margin-x(auto);
+    }
     
     .footer-logo {
 

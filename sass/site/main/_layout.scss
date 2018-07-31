@@ -12,6 +12,9 @@
     }
     
     .intro-app {
+        &>* {
+            @include margin-x(2%);
+        }
         
         @media screen and (max-width: $query__tablet) {
             text-align: center;
@@ -53,16 +56,40 @@
         color: $color__white-lighter;
         position: relative;
         overflow: hidden;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        @include padding-y(2rem);
         background: linear-gradient(to right, rgba(246,87,98,.8), rgba(164,147,255,.8)), url('/mealsters/wp-content/themes/mealsters/img/katherine-chase-493940-unsplash.jpg') center no-repeat;
         background-size: cover;
         
-        .step-image { max-width: 150px; }
+        // in case display:grid is not supported, site-header will have a max-width, 
+        // intro-step should have a max-width too so that the layout is consistent.
+        max-width: $query__desktop-large;
+        @include margin-x(auto);
+        
+        @supports (display: grid) {
+            max-width: initial;
+        }
+        
+        .step-image { max-width: 100px; }
         
         .intro-step-main {
             max-width: $width-wrapper;
             margin: auto;
+        
+            .step {
+                @include padding-x(2rem);
+                @include padding-y(1rem);
+                box-sizing: border-box;
+            }
+            
+            @media screen and (min-width: $query__tablet) {
+                display: flex;
+                flex-flow: row wrap;
+
+                .step {
+                    margin: 1rem 2%;
+                    flex: 1 0 21%;
+                }
+            }
         }
         
     } //end of intro-step
@@ -70,22 +97,15 @@
     .page-header { // heading of section-category
         @media screen and (max-width: $query__tablet) {
             text-align: center;
-        }
-        
-        @media screen and (min-width: $query__tablet) {
             @include margin-x(2%);
         }
     }
     
-    .section-category, .intro-step-main {
+    .section-category {
         .post {
+            @include margin-x(2%);
             @include padding-y(1rem);
             box-sizing: border-box;
-        }
-        
-        .step {
-            @include padding-x(2rem);
-            @include padding-y(1rem);
         }
         
         &:not(.our-story) .post {     
@@ -102,8 +122,11 @@
         
         @media screen and (max-width: $query__tablet) {
             .post-thumbnail img {
-                max-height: 80vh;
-                object-fit: cover;
+                
+                @supports (object-fit: cover) {
+                    max-height: 70vh;
+                    object-fit: cover;
+                }
             }
         }
         
@@ -111,29 +134,38 @@
             display: flex;
             flex-flow: row wrap;
             
-            .page-header, .navigation {
+            .page-header {
                 flex: 1 0 98%;
+                margin-left: 2%;
             }   
             
-            .post, .step {
-                margin: 1rem 2%;
+            .post {
+                @include margin-y(1rem);
                 flex: 1 0 21%;
             }
             
             .post-thumbnail img {
-                height: 18vw;
-                min-height: 150px;
-                max-height: 300px;
-                object-fit: cover;
+                @supports (object-fit: cover) {
+                    max-height: 300px;
+                    min-height: 150px;
+                    height: 18vw;
+                    object-fit: cover;
+                }
             }
         }
         
         // Create a special layout for our story section
         &.our-story {
+            @media screen and (min-width: 500px) {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            
             .page-header {
                 // undo margin-x for heading Our Story 
                 @include margin-x(0);
                 margin-bottom: 1rem;
+                flex-basis: 100%;
             }
             
             .entry-content {
@@ -175,11 +207,11 @@
             
             .post:first-of-type { background: $color__red-darker; }
             .post:nth-of-type(2) { background: $color__blue-darker; }
-            .post:nth-of-type(3) { background: $color__weborange-darker; }
-            .post:last-of-type { background: darken($color__coral, 30%); }
+            .post:nth-of-type(3) { background: $color__green; }
+            .post:last-of-type { background: $color__pink-darker; }
             
-            @media screen and (min-width: $query__tablet) {
-                .post { flex-basis: 46%; }
+            @media screen and (min-width: $query__phone-large) {
+                .post { flex-basis: 50%; }
             }
             
             @media screen and (min-width: $query__tablet) and (max-width: $query__desktop-large) {
@@ -194,8 +226,8 @@
                 
         } //end of our-story
         
-        
     } //end of section-category
+    
 } //end of home .site-main
 
 

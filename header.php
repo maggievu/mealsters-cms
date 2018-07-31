@@ -40,18 +40,13 @@
 		<div class="site-branding">
 			<?php if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="logo"> <?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="Site Logo"> <?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="logo"> <?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-bw.png" alt="Site Logo"> <?php bloginfo( 'name' ); ?></a></p>
 				<?php
-			endif;
-			$mealsters_description = get_bloginfo( 'description', 'display' );
-			if ( $mealsters_description || is_customize_preview() ) :
-				?>
-				<!--<p class="site-description smallest"><?php echo $mealsters_description; /* WPCS: xss ok. */ ?></p>-->
-			<?php endif; ?>
+			endif; ?>
 		</div><!-- .site-branding -->
                 
 		<nav id="site-navigation" class="main-navigation">
@@ -78,7 +73,7 @@
                             <a href="#" class="android"> For Android</a>
                         </div><!-- .header-content -->
                         <div class="header-demo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="phone">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/phone-demo.png" style="width: 300px;" alt="Phone Demo Screenshot">
                         </div>
                                 
                 <?php elseif ( is_singular() ) : ?>

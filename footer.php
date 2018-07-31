@@ -66,8 +66,10 @@
             <span class="sep"> | </span>
                 <?php
                 /* translators: 1: Theme name, 2: Theme author. */
-                printf(esc_html__('Theme: %1$s by %2$s.', 'mealsters'), 'mealsters', '<a href="http://underscores.me/">The A-team</a>');
+                printf(esc_html__('Theme: %1$s by %2$s.', 'mealsters'), 'mealsters', '<a href="http://underscores.me/">The A-Team</a>');
                 ?>
+            <span class="sep"> | </span>
+            <a href="/mealsters/attribution-media">Attribution</a>
     </div><!-- .site-info -->
     
 </footer><!-- #colophon -->

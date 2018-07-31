@@ -12,7 +12,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
             
-                <?php mealsters_post_thumbnail(); 
+		<?php if ( ! is_front_page() ) :
+                    mealsters_post_thumbnail();
+                elseif ( ! has_category('Our Story')) :
+                    mealsters_post_thumbnail();
+                endif;
         
 		if ( ! is_singular() ) :
 			the_title( '<h3 class="entry-title bigger"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
