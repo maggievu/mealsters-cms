@@ -142,7 +142,9 @@ function mealsters_scripts() {
 
         wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 	
-        wp_enqueue_script( 'mealsters-carousel', get_template_directory_uri() . '/js/carousel.js', array('jquery'), '20151215', true );
+        if ( is_front_page() ) {
+            wp_enqueue_script( 'mealsters-carousel', get_template_directory_uri() . '/js/carousel.js', array('jquery'), '20151215', true );
+        }
 	
 //	wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/aria.js', array(), '20151215', true );
 	

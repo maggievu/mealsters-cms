@@ -81,7 +81,7 @@
             max-width: initial;
         }
         
-        .step-image { max-width: 100px; }
+        .step-image { max-width: 150px; }
         
         .intro-step-main {
             max-width: $width-wrapper;
@@ -184,7 +184,7 @@
         
         // Create a special layout for section-story
         &.section-story {
-            @media screen and (min-width: 500px) {
+            @media screen and (min-width: $query__phone-large) {
                 display: flex;
                 flex-flow: row wrap;
             }

@@ -28,7 +28,7 @@
 /*                                              */
 /************************************************/
 
-.single {
+.single:not(.attachment) {
     .header-background img {
         @supports (object-fit: cover) {
             object-position: 50% 95%;
@@ -40,7 +40,7 @@
     .post-thumbnail {
         margin-top: -4rem;
             
-        @media screen and (min-width: $query__tablet) {
+        @media screen and (min-width: $query__desktop-small) {
             margin-top: -6rem;
         }
         
@@ -111,9 +111,14 @@
 } // end of put max-width =======================================
 
 
+/************************************************/
+/*                                              */
+/*      PAGE & ATTACHMENT PAGE-LAYOUT           */
+/*                                              */
+/************************************************/
 
-// On pages, since there's no custom fields, the title should be centered
-.page {
+// On pages and attachment pages, since there's no custom fields, the title should be centered
+.page, .attachment {
     .entry-header {
         display: table-cell;
         
@@ -132,8 +137,8 @@
 }
 
 
-// Create a half-border-bottom after the title only on .single and .page
-.single .entry-title, .archive .page-title {
+// Create a half-border-bottom after the title only on .single (not on attachment pages) and .archive
+.single:not(.attachment) .entry-title, .archive .page-title {
         margin: 1rem 0;
         &:after {
             content: "";
@@ -291,6 +296,7 @@
     @media screen and (min-width: $query__tablet) {
         display: flex;
         flex-flow: row wrap;
+        align-items: flex-end;
         
         p:first-of-type, p:nth-of-type(2) {
             flex-basis: 98%;
@@ -305,3 +311,50 @@
         }
     }
 } // end of ATTRIBUTION page ================================
+
+
+/*******************************************************************/
+/*                                                                 */
+/*                   ABOUT US PAGE (#id16)                         */
+/*                                                                 */
+/*******************************************************************/
+
+.page-id-16 {
+    .entry-content {
+        img { border-radius: 50%; }
+        .about-member {
+            @include margin-y(1.5rem);
+            @include padding-y(.5rem);
+            border-bottom: 2px solid $color__white-dark;
+        }
+        
+        @media screen and (max-width: $query__tablet) {
+            .about-member-img {
+                text-align: center;
+            }
+        }
+        
+        @media screen and (min-width: $query__tablet) {
+            
+            .about-member {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: center;
+                justify-content: space-between;
+                
+/*                &>* {
+                    flex-grow: 1;
+                }*/
+                
+                p:first-of-type {
+                    flex-basis: 40%;
+                }
+                
+                .about-member-text {
+                    flex-basis: 55%;
+                }
+            }
+            
+        }
+    }
+}

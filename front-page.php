@@ -39,13 +39,13 @@ get_header();
                             <div class="step">
                                 <img class="step-image" src="<?php echo get_template_directory_uri(); ?>/img/svg/step2.svg" alt="How does Mealsters work? Step 2">
                                 <p>See more details</p>
-                                <p>Check more information about the ingredients, price, and restaurant info.</p>
+                                <p>Check the ingredients, price, and restaurant info.</p>
                             </div>
 
                             <div class="step">
                                 <img class="step-image" src="<?php echo get_template_directory_uri(); ?>/img/svg/step3.svg" alt="How does Mealsters work? Step 3">
                                 <p>Order or Book</p>
-                                <p>Explore the restaurant’s website or call them directly.</p>
+                                <p>Explore the restaurant’s website or call them.</p>
                             </div>
                         </div>
                         

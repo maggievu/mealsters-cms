@@ -32,6 +32,13 @@
 	}
 }
 
+
+/*.skip-link:focus {
+    color: $color__white;
+    background-color: $color__blue-darker;
+    border-color: initial;
+}*/
+
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
 	outline: 0;

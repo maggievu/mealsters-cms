@@ -10,7 +10,7 @@
     
     
     // On mobile, site-header will span the entire window height with the logo and menu button on top and content in the middle
-    @media screen and (max-width: $query__tablet) {
+    @media screen and (max-width: $query__desktop-small) {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -31,7 +31,7 @@
     
     
     // From tablet size, the phone-demo-screenshot will appear and be on the right side
-    @media screen and (min-width: $query__tablet) {
+    @media screen and (min-width: $query__desktop-small) {
         height: 580px; 
         padding-top: 1rem;
         
@@ -86,9 +86,8 @@
     
     // Create a menu bar with the logo on the left and the menu on the right
     .site-branding { 
-        flex-basis: 66%;
         width: 50%;
-        z-index: -11;
+        flex-basis: 46%;
         
         @supports (display: grid) {
             grid-column: 2/3;
@@ -111,9 +110,9 @@
     }
     
     .main-navigation {
-        flex-basis: 26%;
         display: table-cell;
         width: 50%;
+        flex-basis: 46%;
         
         @supports (display: grid) {
             grid-column: 3/4;

@@ -13,7 +13,7 @@
     
 	<header class="entry-header">
             
-                <!-- The posts from category story will not have post-thumbnails only on front page -->
+                <!-- The posts from category story only on front page will not have post-thumbnails -->
                 
 		<?php if ( ! is_front_page() ) :
                     mealsters_post_thumbnail();

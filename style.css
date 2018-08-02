@@ -48,7 +48,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 ## Define the main color web orange and its different shades  
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-## Define the support colors: blue, red, pink and coral (extra)              
+## Define the support colors: blue, red, pink and green (extra)              
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Define the colors black and white                          
@@ -735,6 +735,9 @@ img {
   max-width: 100%;
   /* Adhere to container width. */
 }
+img[alt="Font Asap"], img[alt="Font Open Sans"] {
+  border: 1px solid #cfcfcf;
+}
 
 figure {
   margin: 1em 0;
@@ -914,7 +917,7 @@ a:hover, a:active {
   transition: all .5s ease;
 }
 .header-content a:hover {
-  background: #907bff;
+  background: #7359ff;
 }
 .header-content a::before {
   font-family: "Font Awesome 5 Brands";
@@ -1050,26 +1053,26 @@ ul {
 /*--------------------------------------------------------------
 ## Menu Header (nav '.main-navigation' > ul '.menu-header')
 --------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .main-navigation {
     text-align: right;
-    position: relative;
+    /*position: relative;*/
   }
 
   .menu-header {
     display: none;
     flex-flow: row wrap;
     position: absolute;
+    justify-content: center;
+    top: 0;
     right: 0;
-    /*        justify-content: center;
-            top: 0;
-            right: 0;
-            left: 0;
-            background: #fff;
-            color: black;
-            @include padding-x(2rem);
-            @include padding-y(2rem);
-            z-index: -10;*/
+    left: 0;
+    background: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
+    z-index: 9;
   }
   .menu-header li {
     padding-left: 1rem;
@@ -1084,23 +1087,23 @@ ul {
   #button-menu-header {
     display: inline-block;
     padding: .5rem 3px;
-    /*z-index: 10;*/
-    /*        &.button-close span {
-                color: red;
-                
-                &:before {
-                    content: "\f00d";
-                }
-            }*/
+    position: absolute;
+    right: 1rem;
+    z-index: 10;
+  }
+  #button-menu-header[aria-expanded='true'] span {
+    color: #f65762;
+  }
+  #button-menu-header[aria-expanded='true'] span:before {
+    content: "\f00d";
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   #button-menu-header {
     display: none;
   }
 
   .menu-header {
-    display: flex;
     flex-flow: row wrap;
     text-align: center;
     padding-top: 0.5rem;
@@ -1110,9 +1113,14 @@ ul {
     flex-grow: 1;
   }
 }
-/*.menu-header.expanded {
-    display: flex;
-}*/
+.expanded {
+  display: flex !important;
+}
+
+.non-expanded {
+  display: none !important;
+}
+
 /*--------------------------------------------------------------
 ## Menu Footer (nav '.footer-navigation' > ul '.menu-footer')
 --------------------------------------------------------------*/
@@ -1180,6 +1188,11 @@ ul {
   /* Above WP toolbar. */
 }
 
+/*.skip-link:focus {
+    color: $color__white;
+    background-color: $color__blue-darker;
+    border-color: initial;
+}*/
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0;
@@ -1329,7 +1342,7 @@ ul {
   }
 }
 .home .site-main .intro-step .step-image {
-  max-width: 100px;
+  max-width: 150px;
 }
 .home .site-main .intro-step .intro-step-main {
   max-width: 1200px;
@@ -1407,7 +1420,7 @@ ul {
     }
   }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 425px) {
   .home .site-main .section-category.section-story {
     display: flex;
     flex-flow: row wrap;
@@ -1527,15 +1540,15 @@ ul {
     transform: translateX(0) scale(1.3);
   }
 }
-.step {
-  animation: fadeleft 5s linear infinite;
-}
-
-.step:nth-of-type(2) {
-  animation: fadeleftscale 5s linear infinite;
-}
-
 @media screen and (max-width: 768px) {
+  .step {
+    animation: fadeleft 5s linear infinite;
+  }
+
+  .step:nth-of-type(2) {
+    animation: fadeleftscale 5s linear infinite;
+  }
+
   .step:not(:nth-of-type(2)) {
     display: none;
   }
@@ -1570,7 +1583,7 @@ ul {
   height: 100vh;
   position: relative;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .site-header {
     display: flex;
     flex-flow: row wrap;
@@ -1587,7 +1600,7 @@ ul {
     text-align: center;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .site-header {
     height: 580px;
     padding-top: 1rem;
@@ -1633,9 +1646,8 @@ ul {
   }
 }
 .site-header .site-branding {
-  flex-basis: 66%;
   width: 50%;
-  z-index: -11;
+  flex-basis: 46%;
 }
 @supports (display: grid) {
   .site-header .site-branding {
@@ -1655,9 +1667,9 @@ ul {
   color: #fff;
 }
 .site-header .main-navigation {
-  flex-basis: 26%;
   display: table-cell;
   width: 50%;
+  flex-basis: 46%;
 }
 @supports (display: grid) {
   .site-header .main-navigation {
@@ -1795,41 +1807,41 @@ body:not(.home) .site-header {
 /*                                              */
 /************************************************/
 @supports (object-fit: cover) {
-  .single .header-background img {
+  .single:not(.attachment) .header-background img {
     object-position: 50% 95%;
   }
 }
-.single .post-thumbnail {
+.single:not(.attachment) .post-thumbnail {
   margin-top: -4rem;
 }
-@media screen and (min-width: 768px) {
-  .single .post-thumbnail {
+@media screen and (min-width: 1024px) {
+  .single:not(.attachment) .post-thumbnail {
     margin-top: -6rem;
   }
 }
 @supports (object-fit: cover) {
-  .single .post-thumbnail img {
+  .single:not(.attachment) .post-thumbnail img {
     max-height: 90vh;
     object-fit: cover;
   }
 }
-.single .entry-header {
+.single:not(.attachment) .entry-header {
   display: table-cell;
   width: 900px;
   margin-left: 2%;
   margin-right: 2%;
 }
 @supports (display: grid) {
-  .single .entry-header {
+  .single:not(.attachment) .entry-header {
     grid-column: 1/-1;
     align-self: start;
   }
-  .single .entry-header.entry-header-story {
+  .single:not(.attachment) .entry-header.entry-header-story {
     align-self: center;
   }
 }
 @media screen and (min-width: 900px) {
-  .single .entry-header {
+  .single:not(.attachment) .entry-header {
     margin-left: auto;
     margin-right: auto;
   }
@@ -1860,29 +1872,34 @@ body:not(.home) .site-header {
   margin: 2rem auto;
 }
 
-.page .entry-header {
+/************************************************/
+/*                                              */
+/*      PAGE & ATTACHMENT PAGE-LAYOUT           */
+/*                                              */
+/************************************************/
+.page .entry-header, .attachment .entry-header {
   display: table-cell;
   width: 900px;
   margin-left: 2%;
   margin-right: 2%;
 }
 @supports (display: grid) {
-  .page .entry-header {
+  .page .entry-header, .attachment .entry-header {
     grid-column: 1/-1;
     align-self: center;
   }
 }
 @media screen and (min-width: 900px) {
-  .page .entry-header {
+  .page .entry-header, .attachment .entry-header {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.single .entry-title, .archive .page-title {
+.single:not(.attachment) .entry-title, .archive .page-title {
   margin: 1rem 0;
 }
-.single .entry-title:after, .archive .page-title:after {
+.single:not(.attachment) .entry-title:after, .archive .page-title:after {
   content: "";
   width: 100px;
   height: 3px;
@@ -2022,6 +2039,7 @@ body:not(.home) .site-header {
   .page-id-117 .post-117 .entry-content {
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-end;
   }
   .page-id-117 .post-117 .entry-content p:first-of-type, .page-id-117 .post-117 .entry-content p:nth-of-type(2) {
     flex-basis: 98%;
@@ -2034,6 +2052,44 @@ body:not(.home) .site-header {
     flex-basis: 46%;
     margin-left: 2%;
     margin-right: 2%;
+  }
+}
+
+/*******************************************************************/
+/*                                                                 */
+/*                   ABOUT US PAGE (#id16)                         */
+/*                                                                 */
+/*******************************************************************/
+.page-id-16 .entry-content img {
+  border-radius: 50%;
+}
+.page-id-16 .entry-content .about-member {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #cfcfcf;
+}
+@media screen and (max-width: 768px) {
+  .page-id-16 .entry-content .about-member-img {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .page-id-16 .entry-content .about-member {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    /*                &>* {
+                        flex-grow: 1;
+                    }*/
+  }
+  .page-id-16 .entry-content .about-member p:first-of-type {
+    flex-basis: 40%;
+  }
+  .page-id-16 .entry-content .about-member .about-member-text {
+    flex-basis: 55%;
   }
 }
 
@@ -2119,7 +2175,7 @@ body:not(.home) .site-header {
     margin-right: auto;
   }
 }
-.page .widget_yarpp_widget {
+.page .widget_yarpp_widget, .attachment .widget_yarpp_widget {
   display: none;
 }
 .widget_yarpp_widget .yarpp-thumbnails-horizontal .yarpp-thumbnail {
@@ -2297,6 +2353,9 @@ object {
   text-align: center;
   vertical-align: top;
   width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  box-sizing: border-box;
 }
 .gallery-columns-2 .gallery-item {
   max-width: 50%;

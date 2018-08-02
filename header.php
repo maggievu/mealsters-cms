@@ -29,7 +29,7 @@
             
                 <?php if ( get_header_image()) : ?>
                 <div class="header-background">
-                    <?php if ( is_single() ) :
+                    <?php if ( is_single() && has_post_thumbnail() ) :
                         the_post_thumbnail();
                         
                     else : ?>
@@ -83,28 +83,28 @@
                         <header class="entry-header">
                         <?php endif; ?>
                             
-                            <?php the_title( '<h1 class="entry-title">', '</h1>' );
-        
-                            if  ( has_category('Discoveries') ) :
-                                    ?>
-                                    <div class="entry-meta">
-                                            <?php
-                                                echo '<div class="entry-meta-restaurant">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
-                                                echo '<div class="entry-meta-price">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
-                                            ?>
-                                    </div>
-                            <?php 
-                            elseif ( has_category('Events') ) :
-                                    ?>
-                                    <div class="entry-meta">
-                                            <?php
-                                                echo '<div class="entry-meta-date">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
-                                                echo '<div class="entry-meta-place">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
-                                            ?>
-                                    </div>
-                            <?php 
+                        <?php the_title( '<h1 class="entry-title">', '</h1>' );
 
-                            endif; ?>
+                        if  ( has_category('Discoveries') ) :
+                                ?>
+                                <div class="entry-meta">
+                                        <?php
+                                            echo '<div class="entry-meta-restaurant">' . get_post_meta(get_the_ID(), 'Restaurant', true) . '</div>';
+                                            echo '<div class="entry-meta-price">' . get_post_meta(get_the_ID(), 'Price', true) . '</div>';
+                                        ?>
+                                </div>
+                        <?php 
+                        elseif ( has_category('Events') ) :
+                                ?>
+                                <div class="entry-meta">
+                                        <?php
+                                            echo '<div class="entry-meta-date">' . get_post_meta(get_the_ID(), 'Date', true) . '</div>';
+                                            echo '<div class="entry-meta-place">' . get_post_meta(get_the_ID(), 'Place', true) . '</div>';
+                                        ?>
+                                </div>
+                        <?php 
+
+                        endif; ?>
                         </header><!-- .entry-header -->
                         
                 <?php elseif ( is_archive() ) : ?>
