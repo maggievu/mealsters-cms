@@ -33,6 +33,7 @@ $j(document).ready(function() {
     $j('#button-menu-header').on('click', function(){
         if ( ! $j(this).attr('aria-expanded') ) {
             $j(this).attr('aria-expanded', true).next().slideToggle(300).toggleClass('non-expanded expanded');
+            $j('#menu-header').children().first().children().focus();
         } else {
             $j(this).removeAttr('aria-expanded').next().toggleClass('expanded non-expanded');
         }

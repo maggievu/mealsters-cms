@@ -140,20 +140,23 @@ function mealsters_scripts() {
         
         wp_enqueue_style( 'mealsters_fontawesome', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
 
+        // script to make the menu responsive on mobile
         wp_enqueue_script( 'mealsters-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 	
+        // The carousel.js script will only be called on front page, since it has window.location.reload which will reload the window everytime the latter gets resized
         if ( is_front_page() ) {
             wp_enqueue_script( 'mealsters-carousel', get_template_directory_uri() . '/js/carousel.js', array('jquery'), '20151215', true );
         }
 	
-//	wp_enqueue_script( 'mealsters-jquery', get_template_directory_uri() . '/js/aria.js', array(), '20151215', true );
+        // script to implement ARIA on #menu-header
+	wp_enqueue_script( 'mealsters-aria', get_template_directory_uri() . '/js/aria.js', array(), '20151215', true );
 	
-        //script to make blinking arrow appear after an element
-        wp_enqueue_script( 'mealsters-blinky', get_template_directory_uri() . '/js/blinky.js', array('jquery'), '20151215', true );
+        // script to make blinking arrow appear after an element
+        // wp_enqueue_script( 'mealsters-blinky', get_template_directory_uri() . '/js/blinky.js', array('jquery'), '20151215', true );
 
 	wp_enqueue_script( 'mealsters-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
         
-        //script to wrap YOUTUBE videos in a DIV, so it can be styled responsively.
+        // script to wrap YOUTUBE videos in a DIV, so it can be styled responsively.
 	wp_enqueue_script( 'mealsters-fluidvideo', get_template_directory_uri() . '/js/fluidvideo.js', array('jquery'), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

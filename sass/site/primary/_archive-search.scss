@@ -1,0 +1,128 @@
+
+/*******************************************************************/
+/*                                                                 */
+/*               ARCHIVE / SEARCH PAGE-LAYOUT                      */
+/*                                                                 */
+/*******************************************************************/
+
+.archive, .search {
+    .page-header {
+        display: table-cell;
+        @include margin-x(2%);
+        
+        @supports (display: grid) {
+            grid-column: 2/-2;
+            align-self: center;
+        }
+    }
+    
+    .entry-title {
+        @include margin-y(1rem);
+    }
+    
+    .site-main {
+        
+        // Make sure post thumbnails don't get longer than 90vh on mobile views
+        img {
+            @supports (object-fit: cover) {
+                max-height: 90vh;
+                object-fit: cover;
+            }
+        }
+        
+        @media screen and (max-width: $query__tablet) {
+            @include margin-x(2%);
+        }
+        
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            
+            .navigation {
+                flex: 1 0 98%;
+            }   
+            
+            .post {
+                @include margin-x(2%);
+                @include margin-y(1rem);
+                flex-basis: 46%;
+                border-bottom: 2px solid $color__white-dark;
+                @include padding-y(1rem);
+            }
+
+            .post-thumbnail img {
+                @supports (object-fit: cover) {
+                    height: 30vw;
+                    min-height: 150px;
+                    max-height: 300px;
+                }
+            }
+        }
+        
+        @media screen and (min-width: $query__desktop-small) {
+            .post {
+                flex-basis: 29.333%;
+            }
+            
+            .post-thumbnail img {
+                @supports (object-fit: cover) {
+                    height: 18vw;
+                }
+            }
+        }
+    }
+} // end of ARCHIVE & SEARCH layout ============================================
+        
+
+/*******************************************************************/
+/*                                                                 */
+/*               404 & SEARCH-NONE LAYOUT                          */
+/*                                                                 */
+/*******************************************************************/
+
+.error404 {
+    .page-header {
+        display: table-cell;
+        @include margin-x(2%);
+        
+        @supports (display: grid) {
+            grid-column: 2/-2;
+            align-self: center;
+        }
+    }
+}
+    
+.error404, .search-no-results {
+    
+    // Only on 404 and search-no-results, site-header will have only colors and no background images
+    .site-header:after {
+        opacity: 1; 
+    }
+    
+    .site-main {
+        @include margin-x(2%);
+    }
+    
+    .page-content {
+        @media screen and (min-width: $query__tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            
+            p, .search-form {
+                flex-basis: 100%;
+            }
+            
+            p {
+                margin-bottom: 0;
+            }
+            
+            .search-form {
+                @include margin-y(1rem);
+            }
+            
+            .widget {
+                flex: 1 0 50%;
+            }
+        }
+    }
+} // end of 404 & SEARCH-NONE layout ==============================

@@ -143,12 +143,12 @@
         }
         
         
-        // Make sure images on mobile views don't get higher than 70vh to increase readability
+        // Make sure images on mobile views don't get higher than 90vh to increase readability
         @media screen and (max-width: $query__tablet) {
             .post-thumbnail img {
                 
                 @supports (object-fit: cover) {
-                    max-height: 70vh;
+                    max-height: 90vh;
                     object-fit: cover;
                 }
             }

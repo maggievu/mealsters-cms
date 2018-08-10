@@ -69,7 +69,7 @@
                 printf(esc_html__('Theme: %1$s by %2$s.', 'mealsters'), 'mealsters', '<a href="http://underscores.me/">The A-Team</a>');
                 ?>
             <span class="sep"> | </span>
-            <a href="/mealsters/attribution-media">Attribution</a>
+            <a href="<?php echo get_permalink(117); ?>">Attribution</a>
     </div><!-- .site-info -->
     
 </footer><!-- #colophon -->

@@ -1,0 +1,123 @@
+/************************************************/
+/*                                              */
+/*      PAGE & ATTACHMENT PAGE-LAYOUT           */
+/*                                              */
+/************************************************/
+
+// On pages and attachment pages, since there's no custom fields, the title should be centered
+.page, .attachment {
+    .entry-header {
+        display: table-cell;
+        
+        @supports (display: grid) {
+            grid-column: 1/-1;
+            align-self: center;
+        }
+            
+        width: $width-single-wrapper;
+        @include margin-x(2%);
+    
+        @media screen and (min-width: $width-single-wrapper) {
+            @include margin-x(auto);
+        }
+    }
+}
+
+
+// Create a half-border-bottom after the title only on .single (not on attachment pages) and .archive
+.single:not(.attachment) .entry-title, .archive .page-title {
+        margin: 1rem 0;
+        &:after {
+            content: "";
+            width: 100px;
+            height: 3px;
+            background: $color__white-lighter;
+            display: block;
+            margin-top: .5rem;
+        }
+}
+
+// Only on posts which has category 'story', .entry-title will not have a half-border-bottom (since they don't have custom fields)
+.single .entry-header-story .entry-title:after {
+    display: none;
+}
+
+
+
+/*******************************************************************/
+/*                                                                 */
+/*      ATTRIBUTION PAGE (SOURCES of MEDIA) (#id117)               */
+/*                                                                 */
+/*******************************************************************/
+
+.page-id-117 .post-117 .entry-content {
+    text-align: center;
+    
+    div {
+        @include margin-y(1rem);
+        @include padding-y(1rem);
+        border-bottom: 2px solid $color__white-dark;
+    }
+    
+    @media screen and (min-width: $query__tablet) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-end;
+        
+        p:first-of-type, p:nth-of-type(2) {
+            flex-basis: 98%;
+            @include margin-x(2%);
+/*            @include font-size(1.2rem);
+            font-weight: 600;*/
+        }
+        
+        div {
+            flex-basis: 46%;
+            @include margin-x(2%);
+        }
+    }
+} // end of ATTRIBUTION page ================================
+
+
+/*******************************************************************/
+/*                                                                 */
+/*                   ABOUT US PAGE (#id16)                         */
+/*                                                                 */
+/*******************************************************************/
+
+.page-id-16 {
+    .entry-content {
+        img { border-radius: 50%; }
+        .about-member {
+            @include margin-y(1.5rem);
+            @include padding-y(.5rem);
+            border-bottom: 2px solid $color__white-dark;
+        }
+        
+        @media screen and (max-width: $query__tablet) {
+            .about-member-img {
+                text-align: center;
+            }
+        }
+        
+        @media screen and (min-width: $query__tablet) {
+            
+            .about-member {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: center;
+                justify-content: space-between;
+                
+                p:first-child {
+                    flex-basis: 40%;
+                    text-align: center;
+                }
+                
+                .about-member-text {
+                    flex-basis: 55%;
+                }
+            }
+            
+        }
+    }
+}

@@ -11,6 +11,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.site-header .site-title {
+    @media screen and (max-width: $query__phone-large) {
+        @include font-size(1.7);
+    }
+}
+
 .site-header .site-title a { 
     color: $color__white-lighter; 
 }
@@ -36,16 +42,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-// Headings on .single, .page, .archive, .search
-.single .entry-title, .page .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
+// Headings on .single, .page, .attachment, .archive, .search
+.single .entry-title, .page .entry-title, .attachment .entry-title, .archive .page-title, .search .page-title, .error404 .page-title {
     @include font-size(2.5);
     font-weight: 600;
     color: $color__white-lighter;
     line-height: 1.15;
+    text-transform: capitalize;
     
     @media screen and (min-width: $query__tablet) {
         @include font-size(3);
     }
+}
+
+.search .page-title span {
+    text-transform: initial;
 }
 
 

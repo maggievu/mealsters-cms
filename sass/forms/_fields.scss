@@ -47,7 +47,7 @@ textarea {
     }
     
     .nf-form-fields-required {
-        margin-bottom: 1rem;
+        @include margin-y(1rem);
     }
     
 }

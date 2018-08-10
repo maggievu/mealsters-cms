@@ -7,14 +7,18 @@
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-        @include padding-x(1%);
         box-sizing: border-box;
+        
+        img { width: 100%; }
 
-	// Loops to enumerate the classes for gallery columns.
-	@for $i from 2 through 9 {
-		.gallery-columns-#{$i} & {
-			max-width: map-get( $columns, $i );
-		}
+	// Loops to enumerate the classes for gallery columns from tablet size.
+        @media screen and (min-width: $query__tablet) {
+            @include padding-x(1%);
+            @for $i from 2 through 9 {
+                    .gallery-columns-#{$i} & {
+                            max-width: map-get( $columns, $i );
+                    }
+            }
 	}
 }
 

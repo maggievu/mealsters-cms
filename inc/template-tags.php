@@ -73,7 +73,7 @@ if ( ! function_exists( 'mealsters_entry_footer' ) ) :
 			}
 		}
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		if ( ! is_single() && ! is_front_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<div class="comments-link">';
 			comments_popup_link(
 				sprintf(

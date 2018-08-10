@@ -24,6 +24,12 @@
             margin-top: 26px;
         }
         
+        .main-navigation {
+            @media screen and (max-width: $query__phone-large) {
+                margin-top: 20px;
+            }
+        }
+        
         .header-content {
             text-align: center;
         }
@@ -54,7 +60,7 @@
     // Put a semi-transparent colored-gradient background on site-header (inside pseudo element :before)
     // The reason this method was chosen (instead of simply putting a multi-background) is because 
     // on single (posts & pages), the post-thumbnails are coming off of the page and will be visible only with the method chosen here.
-    &:before {
+    &:after {
         content: "";
         background: linear-gradient(to bottom right, $color__violetred, $color__weborange);
         opacity: .8;
@@ -87,7 +93,7 @@
     // Create a menu bar with the logo on the left and the menu on the right
     .site-branding { 
         width: 50%;
-        flex-basis: 46%;
+        flex-basis: 51%;
         
         @supports (display: grid) {
             grid-column: 2/3;
@@ -99,7 +105,10 @@
         margin: 0;
         
         img {
-            width: 50px;
+            width: 40px;    
+            @media screen and (min-width: $query__phone-large) {
+                width: 50px;
+            }
             height: auto;
             vertical-align: bottom;
         }
@@ -112,7 +121,7 @@
     .main-navigation {
         display: table-cell;
         width: 50%;
-        flex-basis: 46%;
+        flex-basis: 41%;
         
         @supports (display: grid) {
             grid-column: 3/4;
